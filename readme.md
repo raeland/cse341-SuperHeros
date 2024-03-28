@@ -7,6 +7,11 @@ Tasks - https://trello.com/b/WvTInU5J/cse341-team-project
 
 (ask for .env file)
 
+
+Trello Board:
+https://trello.com/invite/b/WvTInU5J/ATTIe22fcac6f47323a18bd4c51a9220775bDDCE51AD/cse341-team-project
+
+
 ## API Docs
 
 HOST/api/docs/
@@ -50,6 +55,23 @@ When adding new dependencies to the project, make sure to use pnpm:
 ```bash
 pnpm add [package-name]
 ```
+
+Team Members (alpha order by first name):
+
+Cristian |  | cdelahoze@hotmail.com
+
+Eduardo | EMFERNANDEZV | eduardo15191@gmail.com
+
+Hector | hectapia | oli21007@byui.edu
+
+Joel | JoelCannon | joelcannon@mac.com
+
+Preston | preston-bateman | prestonbbateman@gmail.com
+
+Rachael | raeland | rsvarady@gmail.com
+
+Ricardo | Ricardo230698 | ricardoprograming@gmail.com
+
 
 By using pnpm, we ensure that everyone is using the same package manager, leading to more consistent installations and fewer 'it works on my machine' issues.
 
