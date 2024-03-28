@@ -22,7 +22,7 @@ Cristian |  | cdelahoze@hotmail.com
 
 Eduardo | | eduardo15191@gmail.com
 
-Hector |  | hectotapia@gmail.com
+Hector | hectapia | hectotapia@gmail.com
 
 Joel | JoelCannon | joelcannon@mac.com
 
