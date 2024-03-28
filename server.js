@@ -11,6 +11,7 @@ const app = express();
 const { errorHandler } = require("./middlewares/error-handler");
 
 const { db, connect } = require("./db/dbConnect");
+const morgan = require("morgan");
 
 app
   .use(express.json())
@@ -30,6 +31,7 @@ app
       origin: process.env.ALLOWED_ORIGINS,
     })
   )
+  .use(morgan("dev")) // log HTTP requests to the console
   .use("/", routes)
   .use("/", statusRoutes)
   .use(errorHandler);
