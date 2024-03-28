@@ -13,3 +13,13 @@ git push
 
 Trello Board:
 https://trello.com/invite/b/WvTInU5J/ATTIe22fcac6f47323a18bd4c51a9220775bDDCE51AD/cse341-team-project
+
+
+Team Members (alpha order by first name):
+Cristian |  | cdelahoze@hotmail.com
+Eduardo | | eduardo15191@gmail.com
+Hector |  | hectotapia@gmail.com
+Joel | JoelCannon | joelcannon@mac.com
+Preston | preston-bateman | prestonbbateman@gmail.com
+Rachael | raeland | rsvarady@gmail.com
+Ricardo |  | ricardoprograming@gmail.com
