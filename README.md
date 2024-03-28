@@ -9,3 +9,7 @@ git pull
 
 When you are done working ALWAYS:
 git push
+
+
+Trello Board:
+https://trello.com/invite/b/WvTInU5J/ATTIe22fcac6f47323a18bd4c51a9220775bDDCE51AD/cse341-team-project
