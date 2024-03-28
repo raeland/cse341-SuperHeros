@@ -20,7 +20,7 @@ Team Members (alpha order by first name):
 
 Cristian |  | cdelahoze@hotmail.com
 
-Eduardo | | eduardo15191@gmail.com
+Eduardo | EMFERNANDEZV | eduardo15191@gmail.com
 
 Hector | hectapia | hectotapia@gmail.com
 
