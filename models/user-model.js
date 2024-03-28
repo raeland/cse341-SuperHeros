@@ -1,14 +1,12 @@
-const mongoose = require('mongoose')
-const isPhoneNumberValid = require('../utils/phone-validator')
-const Joi = require('joi')
+const mongoose = require("mongoose");
+const isPhoneNumberValid = require("../utils/phone-validator");
+const Joi = require("joi");
 
 const Roles = {
-  VIEWER: 'Viewer',
-  OPERATOR: 'Operator',
-  MANAGER: 'Manager',
-  ADMIN: 'Admin',
-  SUPER_ADMIN: 'Super Admin',
-}
+  VIEWER: "Viewer",
+  EDITOR: "Editor",
+  ADMIN: "Admin",
+};
 
 const UserSchema = mongoose.Schema(
   {
@@ -21,10 +19,10 @@ const UserSchema = mongoose.Schema(
       unique: true,
       validate: {
         validator: function (v) {
-          return /^[^\s]{3,}$/.test(v)
+          return /^[a-zA-Z0-9_-]{3,}$/.test(v);
         },
         message:
-          'Username must be at least 3 characters long and contain no spaces.',
+          "Username must be at least 3 characters long and can contain alphanumeric characters, underscores, and hyphens.",
       },
     },
     email: {
@@ -33,21 +31,21 @@ const UserSchema = mongoose.Schema(
       unique: true,
       validate: {
         validator: function (v) {
-          return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(v)
+          return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(v);
         },
-        message: 'Email is not valid.',
+        message: "Email is not valid.",
       },
     },
     phone: {
       type: String,
       validate: {
         validator: function (v) {
-          return /^\+[1-9]\d{1,14}$/.test(v)
+          return /^\+[1-9]\d{1,14}$/.test(v);
         },
         message: (props) =>
           `${props.value} is not a valid phone number. ie:(+18881234567)`,
       },
-      required: [true, 'User phone number required'],
+      required: [true, "User phone number required"],
       unique: true,
     },
     role: {
@@ -61,45 +59,47 @@ const UserSchema = mongoose.Schema(
     },
     organization: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Organization',
+      ref: "Organization",
     },
   },
   {
     timestamps: true,
-    collection: 'users',
-  },
-)
+    collection: "users",
+  }
+);
 
 UserSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
-  const result = await this.findOne(condition)
-  return result || this.create(doc)
-}
+  const result = await this.findOne(condition);
+  return result || this.create(doc);
+};
 
-UserSchema.pre('save', async function (next) {
+UserSchema.pre("save", async function (next) {
   if (!(await isPhoneNumberValid(this.phone))) {
-    throw new Error('Phone number is not valid SMS-capable number!')
+    throw new Error("Phone number is not valid SMS-capable number!");
   }
-  next()
-})
+  next();
+});
 
-const User = mongoose.model('User', UserSchema)
+const User = mongoose.model("User", UserSchema);
 
 const userJoiSchema = Joi.object({
-  username: Joi.string().pattern(new RegExp('^[^s]{3,}$')).required(),
+  username: Joi.string()
+    .pattern(new RegExp("^[a-zA-Z0-9_-]{3,30}$"))
+    .required(),
   email: Joi.string().email().required(),
-  phone: Joi.string().pattern(new RegExp('^\\+[1-9]\\d{1,14}$')).required(),
+  phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")).required(),
   role: Joi.string()
     .valid(...Object.values(Roles))
     .default(Roles.VIEWER),
   isActive: Joi.boolean().default(true),
   organization: Joi.string(), // assuming organization id is a string
-})
+});
 
 module.exports = {
   Roles,
   User,
   userJoiSchema,
-}
+};
 
 /**
  * @swagger

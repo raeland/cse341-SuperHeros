@@ -1,19 +1,62 @@
 [
    {
-      "username": "joelcannon",
-      "email": "joelcannon@mac.com",
-      "phone": "+15412440897",
-      "role": "Super Admin"
+      "username": "stanlee",
+      "email": "stanlee@marvel.com",
+      "phone": "+15412440891",
+      "role": "Admin",
+      "isActive": true,
+      "createdAt": "2024-03-28T00:17:09.048Z",
+      "updatedAt": "2024-03-28T00:17:09.048Z",
+      "__v": 0
    },
    {
-      "username": "jcannon",
-      "email": "joelcannon@gmail.com",
-      "phone": "+15412440898",
+      "username": "jackkirby",
+      "email": "jackkirby@marvel.com",
+      "phone": "+15412440892",
+      "role": "Admin",
+      "isActive": true,
+      "createdAt": "2024-03-28T00:17:09.048Z",
+      "updatedAt": "2024-03-28T00:17:09.048Z",
+      "__v": 0
    },
    {
-      "username": "shawnie",
-      "email": "shawniecannon@gmail.com",
+      "username": "steveditko",
+      "email": "steveditko@marvel.com",
+      "phone": "+15412440893",
+      "role": "Admin",
+      "isActive": true,
+      "createdAt": "2024-03-28T00:17:09.048Z",
+      "updatedAt": "2024-03-28T00:17:09.048Z",
+      "__v": 0
+   },
+   {
+      "username": "jimlee",
+      "email": "jimlee@wildstorm.com",
+      "phone": "+15412440894",
+      "role": "Admin",
+      "isActive": true,
+      "createdAt": "2024-03-28T00:17:09.048Z",
+      "updatedAt": "2024-03-28T00:17:09.048Z",
+      "__v": 0
+   },
+   {
+      "username": "toddmcfarlane",
+      "email": "toddmcfarlane@spawn.com",
+      "phone": "+15412440895",
+      "role": "Admin",
+      "isActive": true,
+      "createdAt": "2024-03-28T00:17:09.048Z",
+      "updatedAt": "2024-03-28T00:17:09.048Z",
+      "__v": 0
+   },
+   {
+      "username": "alanmoore",
+      "email": "alanmoore@moorecomics.com",
       "phone": "+15412440896",
-      "role": "Admin"
-   },
+      "role": "Admin",
+      "isActive": true,
+      "createdAt": "2024-03-28T00:17:09.048Z",
+      "updatedAt": "2024-03-28T00:17:09.048Z",
+      "__v": 0
+   }
 ]

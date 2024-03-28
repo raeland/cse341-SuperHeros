@@ -5,9 +5,7 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-      - key: MONGODB_URI
-        from: MONGODB_URI
       - key: PORT
         value: 10000
       - key: CORS_ORIGIN
-        value: https://cse341-w4-h46g.onrender.com
+        value: https://superheros-6636.onrender.com

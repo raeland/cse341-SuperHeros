@@ -1,13 +1,8 @@
-# How to run it
+# Links
 
-Run pnpm install and npm dev from root in the terminal
-
-Test the endpoints in the routes.rest file with Rest Client or another similar tool.
-
-GitHub - https://github.com/joelcannon/grid-guardian-api
-Render - https://cse341-w4-h46g.onrender.com/
-Swagger API Docs - https://cse341-w4-h46g.onrender.com/api/docs/
-Demo - https://somup.com/cZeb1DC1HH
+GitHub - https://github.com/raeland/cse341-SuperHeros
+Render -
+(ask for .env file)
 
 ## API Docs
 
@@ -29,10 +24,22 @@ To install the project dependencies, navigate to the project directory and run:
 pnpm install
 ```
 
+To build the project:
+
+```bash
+pnpm run build
+```
+
 To run the project:
 
 ```bash
 pnpm run start
+```
+
+To run the project locally during development (auto-restart on file updates):
+
+```bash
+pnpm run dev
 ```
 
 When adding new dependencies to the project, make sure to use pnpm:
