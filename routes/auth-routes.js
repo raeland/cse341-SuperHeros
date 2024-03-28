@@ -10,11 +10,11 @@ authRouter.use((req, res, next) => {
 });
 
 authRouter.get(
-  "/login",
+  "/github",
   // #swagger.summary = 'login in using GitHub'
   // #swagger.tags = ['auth']
-  // #swagger.description = 'the /api/auth/login route should be accessed directly in the browser, not via AJAX.'
-  authController.login
+  // #swagger.description = 'the /api/auth/github route should be accessed directly in the browser, not via AJAX.'
+  authController.github
 );
 
 authRouter.get(

@@ -263,13 +263,13 @@
         }
       }
     },
-    "/api/auth/login": {
+    "/api/auth/github": {
       "get": {
         "tags": [
           "auth"
         ],
         "summary": "login in using GitHub",
-        "description": "the /api/auth/login route should be accessed directly in the browser, not via AJAX.",
+        "description": "the /api/auth/github route should be accessed directly in the browser, not via AJAX.",
         "responses": {
           "200": {
             "description": "Redirects to GitHub for authentication"
