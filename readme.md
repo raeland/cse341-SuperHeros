@@ -1,16 +1,14 @@
 # Links
 
 GitHub - https://github.com/raeland/cse341-SuperHeros
-Render - https://superheros-6636.onrender.com
+Render - https://superheros-6636.onrender.com/api/docs
 Proposal - https://docs.google.com/document/d/1x4JgfCmUX8qKFdUxg7kx79yyM5b78ad8qsnfaU8_qEU/edit
 Tasks - https://trello.com/b/WvTInU5J/cse341-team-project
 
 (ask for .env file)
 
-
 Trello Board:
 https://trello.com/invite/b/WvTInU5J/ATTIe22fcac6f47323a18bd4c51a9220775bDDCE51AD/cse341-team-project
-
 
 ## API Docs
 
@@ -58,7 +56,7 @@ pnpm add [package-name]
 
 Team Members (alpha order by first name):
 
-Cristian |  | cdelahoze@hotmail.com
+Cristian | | cdelahoze@hotmail.com
 
 Eduardo | EMFERNANDEZV | eduardo15191@gmail.com
 
@@ -71,7 +69,6 @@ Preston | preston-bateman | prestonbbateman@gmail.com
 Rachael | raeland | rsvarady@gmail.com
 
 Ricardo | Ricardo230698 | ricardoprograming@gmail.com
-
 
 By using pnpm, we ensure that everyone is using the same package manager, leading to more consistent installations and fewer 'it works on my machine' issues.
 
