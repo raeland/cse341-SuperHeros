@@ -1,17 +1,17 @@
-const userRouter = require('express').Router()
-const userController = require('../controllers/user-controller.js')
-const { isAuthenticated } = require('../middlewares/is-authenticated.js')
+const userRouter = require("express").Router();
+const userController = require("../controllers/user-controller.js");
+const { isAuthenticated } = require("../middlewares/is-authenticated.js");
 
 userRouter.get(
-  '/',
+  "/",
   // #swagger.description = 'use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   // #swagger.summary = 'get all Users'
   // #swagger.tags = ['users']
-  userController.getAllUsers,
-)
+  userController.getAllUsers
+);
 
 userRouter.get(
-  '/:id',
+  "/:id",
   /* #swagger.parameters['id'] = {
     in: 'path',
     description: 'ID of the user to retrieve',
@@ -20,11 +20,11 @@ userRouter.get(
    } */
   // #swagger.summary = 'get a single User by id'
   // #swagger.tags = ['users']
-  userController.getUserById,
-)
+  userController.getUserById
+);
 
 userRouter.post(
-  '/',
+  "/",
   // #swagger.summary = 'Add a new User',
   // #swagger.tags = ['users'],
   /* #swagger.requestBody = {
@@ -38,7 +38,7 @@ userRouter.post(
       }
     } */
   /* #swagger.responses[200] = {
-      description: 'Success: User was updated successfully. JWC',
+      description: 'Success: User was updated successfully.',
       schema: { $ref: '#/components/schemas/User' }
     } */
   // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
@@ -46,47 +46,47 @@ userRouter.post(
 
   isAuthenticated,
   (req, res, next) => {
-    console.log(req.body)
-    next()
+    console.log(req.body);
+    next();
   },
-  userController.createUser,
-)
+  userController.createUser
+);
 
 userRouter.put(
-  '/:id',
+  "/:id",
   // #swagger.summary = 'update a User by id'
   // #swagger.tags = ['users']
   isAuthenticated,
-  userController.updateUserById,
-)
+  userController.updateUserById
+);
 
 userRouter.delete(
-  '/:id',
+  "/:id",
   // #swagger.summary = 'delete a single User by id'
   // #swagger.tags = ['users']
   isAuthenticated,
-  userController.deleteUserById,
-)
+  userController.deleteUserById
+);
 
 userRouter.delete(
-  '/',
+  "/",
   // #swagger.summary = 'delete all Users'
   // #swagger.tags = ['users']
   isAuthenticated,
-  userController.deleteAllUsers,
-)
+  userController.deleteAllUsers
+);
 
 userRouter.patch(
-  '/:id/toggleActiveStatus',
+  "/:id/toggleActiveStatus",
   // #swagger.summary = 'toggle a User active status by id'
   // #swagger.tags = ['users']
   isAuthenticated,
-  userController.toggleUserActiveStatus,
-)
+  userController.toggleUserActiveStatus
+);
 
 // userRouter.use(userController.errorHandler)
 
-module.exports = userRouter
+module.exports = userRouter;
 
 /* #swagger.parameters['newUser'] = {
     in: 'body',

@@ -1,7 +1,10 @@
 # Links
 
 GitHub - https://github.com/raeland/cse341-SuperHeros
-Render -
+Render - https://superheros-6636.onrender.com
+Proposal - https://docs.google.com/document/d/1x4JgfCmUX8qKFdUxg7kx79yyM5b78ad8qsnfaU8_qEU/edit
+Tasks - https://trello.com/b/WvTInU5J/cse341-team-project
+
 (ask for .env file)
 
 ## API Docs

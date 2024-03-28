@@ -31,7 +31,7 @@ exports.createUser = [
 
 exports.getAllUsers = [
   async (req, res, next) => {
-    // #swagger.responses[200] = { description: 'Success JWC' }
+    // #swagger.responses[200] = { description: 'Success' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
       const data = await User.find();
@@ -80,7 +80,7 @@ exports.updateUserById = [
       }
     } */
   /* #swagger.responses[200] = {
-      description: 'Success: User was updated successfully. JWC',
+      description: 'Success: User was updated successfully.',
       schema: { $ref: '#/components/schemas/User' }
     } */
   // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
@@ -193,19 +193,3 @@ exports.toggleUserActiveStatus = [
     }
   },
 ];
-
-// #swagger.parameters['POST-JWC'] = { description: 'User ID' }
-/* #swagger.requestBody = {
-      required: true,
-      content: {
-        "application/json": {
-          schema: {
-            $ref: '#/components/schemas/User'
-          }
-        }
-      }
-    } */
-// #swagger.responses[201] = { description: 'User created successfully jwc' }
-// #swagger.responses[200] = { description: 'Success' }
-// #swagger.responses[400] = { description: 'Bad request: Content can not be empty!' }
-// #swagger.responses[500] = { description: 'Internal server error' }
