@@ -57,10 +57,6 @@ const UserSchema = mongoose.Schema(
       type: Boolean,
       default: true, // Set to true by default
     },
-    organization: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Organization",
-    },
   },
   {
     timestamps: true,
@@ -92,7 +88,6 @@ const userJoiSchema = Joi.object({
     .valid(...Object.values(Roles))
     .default(Roles.VIEWER),
   isActive: Joi.boolean().default(true),
-  organization: Joi.string(), // assuming organization id is a string
 });
 
 module.exports = {
@@ -128,7 +123,4 @@ module.exports = {
  *           type: boolean
  *           default: true
  *           description: The active status of the user
- *         organization:
- *           type: string
- *           description: The ID of the user's organization
  */

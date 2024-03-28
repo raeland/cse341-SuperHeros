@@ -29,17 +29,10 @@ const doc = {
           phone: { type: "string" },
           role: { type: "string" },
           isActive: { type: "boolean" },
-          organization: { type: "string" },
         },
       },
     },
     securitySchemes: {
-      ApiKeyAuth: {
-        // name the security scheme
-        type: "apiKey",
-        in: "header", // API key is passed in the header
-        name: "apiKey", // name of the header, parameter or cookie
-      },
       OAuth2: {
         type: "oauth2",
         flows: {
@@ -54,12 +47,7 @@ const doc = {
       },
     },
   },
-  security: [
-    {
-      ApiKeyAuth: [],
-    },
-    { OAuth2: ["read:user"] },
-  ],
+  security: [{ OAuth2: ["read:user"] }],
 };
 
 const outputFile = "./docs/openapi.json";

@@ -1,13 +1,13 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "grid-guardian-api",
-    "description": "BYUI CSE341 Week 3: API Documentation for grid-guardian project",
+    "title": "superhero-api",
+    "description": "BYUI CSE341 Team 19 API Documentation for superhero project",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://superhero-???.onrender.com",
+      "url": "https://superheros-6636.onrender.com",
       "description": "production Render URL"
     },
     {
@@ -373,15 +373,6 @@
                     "example": "boolean"
                   }
                 }
-              },
-              "organization": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "string"
-                  }
-                }
               }
             }
           }
@@ -392,11 +383,6 @@
       }
     },
     "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "apiKey"
-      },
       "OAuth2": {
         "type": "oauth2",
         "flows": {
@@ -412,9 +398,6 @@
     }
   },
   "security": [
-    {
-      "ApiKeyAuth": []
-    },
     {
       "OAuth2": [
         "read:user"

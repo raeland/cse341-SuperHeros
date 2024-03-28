@@ -1,19 +1,15 @@
-require('dotenv').config()
-const { User } = require('../models/user-model')
-const { findUserById, createUser } = require('../services/user-services')
-const validateApiKey = require('../middlewares/validate-api-key')
-const validateUser = require('../middlewares/validate-user')
-const validateUserUpdate = require('../middlewares/validate-user-update')
-
-const apiKey = process.env.API_KEY
+require("dotenv").config();
+const { User } = require("../models/user-model");
+const { findUserById, createUser } = require("../services/user-services");
+const validateUser = require("../middlewares/validate-user");
+const validateUserUpdate = require("../middlewares/validate-user-update");
 
 exports.createUser = [
-  validateApiKey,
   validateUser,
   async (req, res, next) => {
     // #swagger.responses[500] = { description: 'Internal server error' }
     if (!req.body.username) {
-      return res.status(400).json({ message: 'Content can not be empty!' })
+      return res.status(400).json({ message: "Content can not be empty!" });
     }
 
     const user = new User({
@@ -22,57 +18,55 @@ exports.createUser = [
       phone: req.body.phone,
       role: req.body.role,
       isActive: req.body.isActive,
-      organization: req.body.organization,
-    })
+    });
 
     try {
-      const data = await createUser(user)
-      res.json(data)
+      const data = await createUser(user);
+      res.json(data);
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 exports.getAllUsers = [
-  validateApiKey,
   async (req, res, next) => {
     // #swagger.responses[200] = { description: 'Success JWC' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
-      const data = await User.find()
-      res.json(data)
+      const data = await User.find();
+      res.json(data);
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 exports.getUserById = [
-  validateApiKey,
   async (req, res, next) => {
     // #swagger.parameters['id'] = { description: 'User ID' }
     // #swagger.responses[200] = { description: 'Success' }
     // #swagger.responses[404] = { description: 'Not found: User with id' }
     // #swagger.responses[500] = { description: 'Internal server error' }
-    const id = req.params.id
+    const id = req.params.id;
 
     try {
-      const data = await findUserById(id)
+      const data = await findUserById(id);
 
       if (!data) {
-        return res.status(404).json({ message: 'Not found User with id ' + id })
+        return res
+          .status(404)
+          .json({ message: "Not found User with id " + id });
       }
 
-      res.json(data)
+      res.json(data);
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 exports.updateUserById = [
-  validateApiKey,
   validateUserUpdate,
   // #swagger.parameters['id'] = { description: 'User ID' }
   /* #swagger.requestBody = {
@@ -96,75 +90,72 @@ exports.updateUserById = [
     if (!req.body) {
       return res
         .status(400)
-        .json({ message: 'Data to update can not be empty!' })
+        .json({ message: "Data to update can not be empty!" });
     }
 
-    const id = req.params.id
+    const id = req.params.id;
 
     try {
       const data = await User.findByIdAndUpdate(id, req.body, {
         useFindAndModify: false,
         new: true,
-      })
+      });
 
       if (!data) {
         return res.status(404).json({
           message: `Cannot update User with id=${id}. Maybe User was not found!`,
-        })
+        });
       } else {
         res
           .status(200)
-          .json({ message: 'User was updated successfully.', user: data })
+          .json({ message: "User was updated successfully.", user: data });
       }
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 exports.deleteUserById = [
-  validateApiKey,
   async (req, res, next) => {
     // #swagger.parameters['id'] = { description: 'User ID' }
     // #swagger.responses[204] = { description: 'Success: User was deleted successfully!' }
     // #swagger.responses[404] = { description: 'Not found: Cannot delete User with id. Maybe User was not found!' }
     // #swagger.responses[500] = { description: 'Internal server error' }
-    const id = req.params.id
+    const id = req.params.id;
 
     try {
-      const data = await User.findByIdAndRemove(id)
+      const data = await User.findByIdAndRemove(id);
 
       if (!data) {
         return res.status(404).json({
           message: `Cannot delete User with id=${id}. Maybe User was not found!`,
-        })
+        });
       } else {
-        res.status(204).json({ message: 'User was deleted successfully!' })
+        res.status(204).json({ message: "User was deleted successfully!" });
       }
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 exports.deleteAllUsers = [
-  validateApiKey,
   async (req, res, next) => {
     // #swagger.responses[204] = { description: 'Success: Users were deleted successfully!' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
-      const data = await User.deleteMany({})
+      const data = await User.deleteMany({});
       res.status(204).json({
         message: `${data.deletedCount} Users were deleted successfully!`,
-      })
+      });
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 exports.toggleUserActiveStatus = [
-  validateApiKey,
   async (req, res, next) => {
     // #swagger.parameters['id'] = { description: 'User ID' }
     /* #swagger.responses[200] = {
@@ -178,30 +169,30 @@ exports.toggleUserActiveStatus = [
     if (!req.body) {
       return res
         .status(400)
-        .json({ message: 'Data to update can not be empty!' })
+        .json({ message: "Data to update can not be empty!" });
     }
 
-    const id = req.params.id
+    const id = req.params.id;
 
     try {
-      const user = await User.findById(id)
+      const user = await User.findById(id);
       if (!user) {
         return res.status(404).json({
           message: `Cannot toggle User active status with id=${id}. Maybe User was not found!`,
-        })
+        });
       } else {
-        user.isActive = !user.isActive
-        const data = await user.save()
+        user.isActive = !user.isActive;
+        const data = await user.save();
         res.status(200).json({
-          message: `User active status was toggled successfully. Current status is ${user.isActive ? 'active' : 'inactive'}.`,
+          message: `User active status was toggled successfully. Current status is ${user.isActive ? "active" : "inactive"}.`,
           user: data,
-        })
+        });
       }
     } catch (err) {
-      next(err)
+      next(err);
     }
   },
-]
+];
 
 // #swagger.parameters['POST-JWC'] = { description: 'User ID' }
 /* #swagger.requestBody = {
