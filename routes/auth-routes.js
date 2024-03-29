@@ -17,6 +17,13 @@ authRouter.get(
   authController.github
 );
 
+authRouter.post(
+  "/login",
+  // #swagger.summary = 'login in using passport-local'
+  // #swagger.tags = ['auth']
+  authController.login
+);
+
 authRouter.get(
   "/logout",
   // #swagger.summary = 'logout'

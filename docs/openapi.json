@@ -277,6 +277,23 @@
         }
       }
     },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "login in using passport-local",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "uses username/password to login"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/api/auth/logout": {
       "get": {
         "tags": [

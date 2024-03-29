@@ -8,7 +8,7 @@ router.get(
   (req, res) => {
     res.send(
       req.session.user !== undefined
-        ? `Logged In as ${req.session.user.displayName}` // #todo - add user id
+        ? `Logged In as ${req.session.user.username}` // #todo - add user id
         : "Logged Out"
     );
   }

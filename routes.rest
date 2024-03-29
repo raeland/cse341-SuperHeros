@@ -2,7 +2,13 @@
 ###
 GET http://localhost:8080/
 ###
-GET http://localhost:8080/api/auth/login/
+POST http://localhost:8080/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "stanlee",
+  "password": "secret"
+}
 ###
 GET http://localhost:8080/api/auth/logout/
 ###
@@ -42,7 +48,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:8080/api/users/65fa4317942aa0637e1f34b3/toggleActiveStatus
+PATCH http://localhost:8080/api/users/6604b8139399fc74ed9353a0/toggleActiveStatus
 Content-Type: application/json
 
 

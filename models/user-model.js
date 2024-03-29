@@ -10,9 +10,9 @@ const Roles = {
 
 const UserSchema = mongoose.Schema(
   {
-    githubId: String,
-    displayName: String,
-    profileUrl: String,
+    // githubId: String,
+    // displayName: String,
+    // profileUrl: String,
     username: {
       type: String,
       required: true,

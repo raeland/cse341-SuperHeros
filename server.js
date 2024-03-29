@@ -10,7 +10,7 @@ const session = require("express-session");
 const app = express();
 const { errorHandler } = require("./middlewares/error-handler");
 
-const { db, connect } = require("./db/dbConnect");
+const { db, connect } = require("./db/db-connect");
 const morgan = require("morgan");
 
 app

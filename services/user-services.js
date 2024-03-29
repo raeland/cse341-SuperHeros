@@ -6,6 +6,10 @@ function findUserById(id) {
   return User.findById(id);
 }
 
+async function findUserByUsername(username) {
+  return User.findOne({ username: username });
+}
+
 async function createUser(userData) {
   const user = new User(userData);
   return await user.save();
@@ -13,5 +17,6 @@ async function createUser(userData) {
 
 module.exports = {
   findUserById,
+  findUserByUsername,
   createUser,
 };

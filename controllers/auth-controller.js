@@ -2,11 +2,32 @@ const passport = require("passport");
 
 exports.github = (req, res, next) => {
   // #swagger.responses[200] = { description: 'Redirects to GitHub for authentication' }
-  passport.authenticate("github", (err) => {
+  passport.authenticate("github", { scope: ["user:email"] }, (err) => {
     if (err) {
       console.error("Error during GitHub OAuth:", err);
       return next(err);
     }
+  })(req, res, next);
+};
+
+exports.login = (req, res, next) => {
+  // #swagger.responses[200] = { description: 'uses username/password to login' }
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      console.error("Error during local authentication:", err);
+      return next(err);
+    }
+    if (!user) {
+      return res.status(400).json({ message: info.message });
+    }
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+      // Create session
+      req.session.user = user;
+      return res.json(user);
+    });
   })(req, res, next);
 };
 

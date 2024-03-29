@@ -1,15 +1,50 @@
 const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
-const { findUserById } = require("../services/user-services.js");
+const {
+  findUserById,
+  findUserByUsername,
+} = require("../services/user-services.js");
 
 const dotenv = require("dotenv");
 dotenv.config();
 
-passportConfig = {
+githubConfig = {
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   clientID: process.env.GITHUB_CLIENT_ID,
   callbackURL: process.env.GITHUB_CALLBACK_URL,
 };
+
+passport.use(
+  "local",
+  new LocalStrategy(function (username, password, done) {
+    // Your logic to find the user and validate the password
+  })
+);
+
+// intentionally using a hardcoded password for demonstration purposes
+passport.use(
+  "local",
+  new LocalStrategy(async function (username, password, done) {
+    try {
+      const user = await findUserByUsername(username);
+      if (!user) {
+        return done(null, false, { message: "Incorrect username." });
+      }
+
+      // Compare passwords
+      if (password === "secret") {
+        // Passwords match
+        return done(null, user);
+      } else {
+        // Passwords don't match
+        return done(null, false, { message: "Incorrect password." });
+      }
+    } catch (err) {
+      return done(err);
+    }
+  })
+);
 
 // passport.use(
 //   new GitHubStrategy(
@@ -23,6 +58,7 @@ passportConfig = {
 //           username: profile.username,
 //           displayName: profile.displayName,
 //           profileUrl: profile.profileUrl,
+//           email: profile.email,
 //           // photos: profile.photos
 //         },
 //         function (err, user) {
@@ -36,7 +72,7 @@ passportConfig = {
 passport.use(
   new GitHubStrategy(
     {
-      ...passportConfig,
+      ...githubConfig,
     },
     function (accessToken, refreshToken, profile, done) {
       // Instead of looking up or creating a user in the database,
