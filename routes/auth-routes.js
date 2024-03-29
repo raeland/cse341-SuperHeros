@@ -19,8 +19,22 @@ authRouter.get(
 
 authRouter.post(
   "/login",
-  // #swagger.summary = 'login in using passport-local'
   // #swagger.tags = ['auth']
+  // #swagger.summary = 'Logs in a user'
+  // #swagger.description = 'Use an existing username in the database, and the password is always "secret" '
+  /* #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            $ref: '#/components/schemas/Login'
+          }
+        }
+      }
+    } */
+  // #swagger.responses[200] = { description: 'Login successful. Returns user data.', schema: { properties: { username: { type: 'string' }, password: { type: 'string' } } } }
+  // #swagger.responses[400] = { description: 'Bad request. The username and password do not match.' }
+  // #swagger.responses[500] = { description: 'Internal server error. An error occurred during the authentication process or during the login session creation.' }
   authController.login
 );
 

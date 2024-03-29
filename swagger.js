@@ -31,6 +31,14 @@ const doc = {
           isActive: { type: "boolean" },
         },
       },
+      Login: {
+        type: "object",
+        required: ["username", "password"],
+        properties: {
+          username: { type: "string" },
+          password: { type: "string" },
+        },
+      },
     },
     securitySchemes: {
       OAuth2: {

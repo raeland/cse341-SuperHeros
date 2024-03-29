@@ -18,6 +18,15 @@ HOST/api/docs/
 
 HOST/api/auth/github
 
+## Local Authentication
+
+HOST/api/auth/login
+Use an existing username in the database, and the password is always "secret"
+{
+"username": "stanlee",
+"password": "secret"
+}
+
 ## Development
 
 This project uses [pnpm](https://pnpm.io/) for managing dependencies. `pnpm` is a fast, disk space efficient package manager.
