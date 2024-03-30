@@ -29,6 +29,7 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: false,
       unique: true,
+      sparse: true,
       validate: {
         validator: function (v) {
           return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(v);
@@ -45,8 +46,9 @@ const UserSchema = mongoose.Schema(
         message: (props) =>
           `${props.value} is not a valid phone number. ie:(+18881234567)`,
       },
-      required: [true, "User phone number required"],
+      required: false,
       unique: true,
+      sparse: true,
     },
     role: {
       type: String,
@@ -66,12 +68,16 @@ const UserSchema = mongoose.Schema(
 
 UserSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
   const result = await this.findOne(condition);
-  return result || this.create(doc);
+  if (result) {
+    return result;
+  } else {
+    return await this.create(doc);
+  }
 };
 
 UserSchema.pre("save", async function (next) {
-  if (!(await isPhoneNumberValid(this.phone))) {
-    throw new Error("Phone number is not valid SMS-capable number!");
+  if (this.phone && !(await isPhoneNumberValid(this.phone))) {
+    throw new Error("Phone number is not a valid SMS-capable number!");
   }
   next();
 });
@@ -82,8 +88,8 @@ const userJoiSchema = Joi.object({
   username: Joi.string()
     .pattern(new RegExp("^[a-zA-Z0-9_-]{3,30}$"))
     .required(),
-  email: Joi.string().email().required(),
-  phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")).required(),
+  email: Joi.string().email(),
+  phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")),
   role: Joi.string()
     .valid(...Object.values(Roles))
     .default(Roles.VIEWER),

@@ -4,6 +4,7 @@ const GitHubStrategy = require("passport-github2").Strategy;
 const {
   findUserById,
   findUserByUsername,
+  findOrCreateUser,
 } = require("../services/user-services.js");
 
 const dotenv = require("dotenv");
@@ -46,42 +47,35 @@ passport.use(
   })
 );
 
-// passport.use(
-//   new GitHubStrategy(
-//     {
-//       ...passportConfig,
-//     },
-//     function (accessToken, refreshToken, profile, done) {
-//       User.findOrCreate(
-//         { githubId: profile.id },
-//         {
-//           username: profile.username,
-//           displayName: profile.displayName,
-//           profileUrl: profile.profileUrl,
-//           email: profile.email,
-//           // photos: profile.photos
-//         },
-//         function (err, user) {
-//           return done(err, user);
-//         }
-//       );
-//     }
-//   )
-// );
-
 passport.use(
   new GitHubStrategy(
     {
       ...githubConfig,
     },
-    function (accessToken, refreshToken, profile, done) {
-      // Instead of looking up or creating a user in the database,
-      // we're just going to pass the profile directly to done.
-      // This will store the profile in the session.
-      return done(null, profile);
+    async function (accessToken, refreshToken, profile, done) {
+      try {
+        const user = await findOrCreateUser(profile);
+        return done(null, user);
+      } catch (err) {
+        return done(err);
+      }
     }
   )
 );
+
+// passport.use(
+//   new GitHubStrategy(
+//     {
+//       ...githubConfig,
+//     },
+//     function (accessToken, refreshToken, profile, done) {
+//       // Instead of looking up or creating a user in the database,
+//       // we're just going to pass the profile directly to done.
+//       // This will store the profile in the session.
+//       return done(null, profile);
+//     }
+//   )
+// );
 
 passport.serializeUser((user, done) => {
   // console.log(user)
