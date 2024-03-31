@@ -90,3 +90,27 @@ Content-Type: application/json
 ###
 PATCH https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f/toggleActiveStatus
 Content-Type: application/json
+
+// COLLECTION
+
+###
+POST http://localhost:8080/api/collection
+Content-Type: application/json
+
+{
+  "name": "Spider-Man",
+  "alias": "Peter Parker",
+  "powers": "Web-Spider-sense",
+  "team": "Avengers",
+  "origin": "Bitten by a radioactive spider",
+  "universe": "Marvel",
+  "appearance": {
+    "hairColor": "Brown",
+    "eyeColor": "Hazel",
+    "height": "5/10",
+    "weight": "167 lbs"
+  },
+  "firstAppearance": "Amazing Fantasy #15",
+  "createdBy": "Stan Lee and Steve Ditko",
+  "imageURL": "https//example.com/spider-man.jpg"
+}

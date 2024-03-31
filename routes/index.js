@@ -4,6 +4,7 @@ const apiRouter = express.Router()
 
 const userRoutes = require('./user-routes.js')
 const authRoutes = require('./auth-routes.js')
+const collectionRoutes = require('./collection-routes.js')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../docs/openapi.json')
 
@@ -12,6 +13,7 @@ router.use('/api', apiRouter)
 
 apiRouter.use('/users', userRoutes)
 apiRouter.use('/auth', authRoutes)
+apiRouter.use('/collection', collectionRoutes)
 apiRouter.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 module.exports = router
