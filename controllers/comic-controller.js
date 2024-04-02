@@ -1,11 +1,11 @@
 require("dotenv").config();
-const { Comic } = require("../models/comic-model");
-const { findComicById, createComic } = require("../services/comic-services");
-const validateComic = require("../middlewares/validate-comic");
-const validateComicUpdate = require("../middlewares/validate-comic-update");
+// const { Comic } = require("../models/comic-model");
+// const { findComicById, createComic } = require("../services/comic-services");
+//const validateComic = require("../middlewares/validate-comic");
+//const validateComicUpdate = require("../middlewares/validate-comic-update");
 
 exports.createComic = [
-  validateComic,
+  /* validateComic,   ******************************/
   async (req, res, next) => {
     // #swagger.responses[500] = { description: 'Internal server error' }
     if (!req.body.comicname) {
@@ -67,7 +67,7 @@ exports.getComicById = [
 ];
 
 exports.updateComicById = [
-  validateComicUpdate,
+  /* validateComicUpdate,   ******************************/
   // #swagger.parameters['id'] = { description: 'Comic ID' }
   /* #swagger.requestBody = {
       required: true,
@@ -86,7 +86,7 @@ exports.updateComicById = [
   // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
   // #swagger.responses[404] = { description: 'Not found: Cannot update Comic with id. Maybe Comic was not found!' }
   // #swagger.responses[500] = { description: 'Internal server error' }
-  async (req, res, next) => {
+ async (req, res, next) => {
     if (!req.body) {
       return res
         .status(400)
@@ -114,7 +114,7 @@ exports.updateComicById = [
       next(err);
     }
   },
-];
+]; 
 
 exports.deleteComicById = [
   async (req, res, next) => {

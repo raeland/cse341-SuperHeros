@@ -1,6 +1,6 @@
 const comicRouter = require("express").Router();
 const comicController = require("../controllers/comic-controller.js");
-const { isAuthenticated } = require("../middlewares/is-authenticated.js");
+//const { isAuthenticated } = require("../middlewares/is-authenticated.js");
 
 comicRouter.get(
   "/",
@@ -44,11 +44,11 @@ comicRouter.post(
   // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
   // #swagger.responses[404] = { description: 'Not found: Cannot update User with id. Maybe User was not found!' }
 
-  isAuthenticated,
+ /* isAuthenticated, ******************************
   (req, res, next) => {
     console.log(req.body);
     next();
-  },
+  },                 ******************************/  
   comicController.createComic
 );
 
@@ -56,7 +56,7 @@ comicRouter.put(
   "/:id",
   // #swagger.summary = 'update a Comic by id'
   // #swagger.tags = ['comics']
-  isAuthenticated,
+  /* isAuthenticated, ******************************/
   comicController.updateComicById
 );
 
@@ -64,7 +64,7 @@ comicRouter.delete(
   "/:id",
   // #swagger.summary = 'delete a single Comic by id'
   // #swagger.tags = ['comics']
-  isAuthenticated,
+  /* isAuthenticated,   ******************************/
   comicController.deleteComicById
 );
 
@@ -72,7 +72,7 @@ comicRouter.delete(
   "/",
   // #swagger.summary = 'delete all Comics'
   // #swagger.tags = ['comics']
-  isAuthenticated,
+  /* isAuthenticated,  ******************************/
   comicController.deleteAllComics
 );
 
@@ -80,7 +80,7 @@ comicRouter.patch(
   "/:id/toggleActiveStatus",
   // #swagger.summary = 'toggle a Comic active status by id'
   // #swagger.tags = ['comics']
-  isAuthenticated,
+  /* isAuthenticated,  ******************************/
   comicController.toggleComicActiveStatus
 );
 

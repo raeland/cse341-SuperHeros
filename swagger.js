@@ -31,6 +31,19 @@ const doc = {
           isActive: { type: "boolean" },
         },
       },
+      Comic: {
+        type: "object",
+
+        properties: {
+          publication: { type: "string" },
+          publisher: { type: "string" },
+          Title: { type: "string" },
+          pages: { type: "string" },
+          year: { type: "string" },
+          isbn13: { type: "string" },
+          language: { type: "string" },
+        },
+      },
     },
     securitySchemes: {
       OAuth2: {
