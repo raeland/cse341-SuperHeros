@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const CollectionSchema = mongoose.Schema(
+const SuperheroSchema = mongoose.Schema(
     {
       name: String,
       alias: String,
@@ -22,16 +22,16 @@ const CollectionSchema = mongoose.Schema(
     imageURL: String
 });
 
-CollectionSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
+SuperheroSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
     const result = await this.findOne(condition);
     return result || this.create(doc);
   };
   
   
-  const Collection = mongoose.model("Collection", CollectionSchema);
+  const Superhero = mongoose.model("Superhero", SuperheroSchema);
 
   module.exports = {
   
-    Collection,
+    Superhero,
 
   };

@@ -91,10 +91,10 @@ Content-Type: application/json
 PATCH https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f/toggleActiveStatus
 Content-Type: application/json
 
-// COLLECTION
+// SUPERHERO
 
 ###
-POST http://localhost:8080/api/collection
+POST http://localhost:8080/api/superhero
 Content-Type: application/json
 
 {
