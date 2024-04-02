@@ -1,5 +1,5 @@
 require("dotenv").config();
-// const { Comic } = require("../models/comic-model");
+const { Comic } = require("../models/comic-model");
 // const { findComicById, createComic } = require("../services/comic-services");
 //const validateComic = require("../middlewares/validate-comic");
 //const validateComicUpdate = require("../middlewares/validate-comic-update");
