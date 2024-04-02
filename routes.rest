@@ -20,7 +20,7 @@ POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-   "username": "stanlee",
+   "username": "stanlee2",
    "email": "stanlee@marvel.com",
    "phone": "+15412440891",
    "role": "Admin"

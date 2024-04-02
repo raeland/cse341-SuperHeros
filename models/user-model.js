@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
 const isPhoneNumberValid = require("../utils/phone-validator");
 const Joi = require("joi");
-
-const Roles = {
-  VIEWER: "Viewer",
-  EDITOR: "Editor",
-  ADMIN: "Admin",
-};
+const { ROLES, ROLE_PERMISSIONS } = require("./roles-model");
 
 const UserSchema = mongoose.Schema(
   {
@@ -52,8 +47,8 @@ const UserSchema = mongoose.Schema(
     },
     role: {
       type: String,
-      enum: Object.values(Roles),
-      default: Roles.VIEWER,
+      enum: Object.values(ROLES),
+      default: ROLES.VIEWER,
     },
     isActive: {
       type: Boolean,
@@ -91,13 +86,12 @@ const userJoiSchema = Joi.object({
   email: Joi.string().email(),
   phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")),
   role: Joi.string()
-    .valid(...Object.values(Roles))
-    .default(Roles.VIEWER),
+    .valid(...Object.values(ROLES))
+    .default(ROLES.VIEWER),
   isActive: Joi.boolean().default(true),
 });
 
 module.exports = {
-  Roles,
   User,
   userJoiSchema,
 };

@@ -77,17 +77,25 @@ passport.use(
 //   )
 // );
 
-passport.serializeUser((user, done) => {
-  // console.log(user)
-  done(null, user.id);
+passport.serializeUser(function (user, done) {
+  // Store the user's ID and role in the session
+  done(null, { id: user.id, role: user.role, isActive: user.isActive });
 });
 
-passport.deserializeUser((id, done) => {
-  const user = findUserById(id);
-  if (!user) {
-    return done(new Error("User not found"));
+passport.deserializeUser(async function ({ id, role }, done) {
+  try {
+    const user = await findUserById(id);
+    if (!user) {
+      return done(null, false);
+    }
+
+    // Add the role to the user object
+    user.role = role;
+
+    done(null, user);
+  } catch (err) {
+    done(err);
   }
-  done(null, user);
 });
 
 module.exports = passport;

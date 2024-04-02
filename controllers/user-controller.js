@@ -172,9 +172,8 @@ exports.toggleUserActiveStatus = [
         .json({ message: "Data to update can not be empty!" });
     }
 
-    const id = req.params.id;
-
     try {
+      const id = req.params.id;
       const user = await User.findById(id);
       if (!user) {
         return res.status(404).json({
@@ -185,6 +184,45 @@ exports.toggleUserActiveStatus = [
         const data = await user.save();
         res.status(200).json({
           message: `User active status was toggled successfully. Current status is ${user.isActive ? "active" : "inactive"}.`,
+          user: data,
+        });
+      }
+    } catch (err) {
+      next(err);
+    }
+  },
+];
+
+exports.updateUserRoleById = [
+  async (req, res, next) => {
+    // #swagger.parameters['id'] = { description: 'User ID' }
+    /* #swagger.responses[200] = {
+      description: 'Success: User role was updated successfully.',
+      schema: { $ref: '#/components/schemas/User' }
+    } */
+    // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
+    // #swagger.responses[404] = { description: 'Not found: Cannot update User role with id. Maybe User was not found!' }
+    // #swagger.responses[500] = { description: 'Internal server error' }
+
+    if (!req.body) {
+      return res
+        .status(400)
+        .json({ message: "Data to update can not be empty!" });
+    }
+
+    try {
+      const id = req.params.id;
+      const newRole = req.body.role;
+      const user = await User.findById(id);
+      if (!user) {
+        return res.status(404).json({
+          message: `Cannot update User role with id=${id}. Maybe User was not found!`,
+        });
+      } else {
+        user.role = newRole;
+        const data = await user.save();
+        res.status(200).json({
+          message: `User role was updated successfully. Current role is ${user.role}.`,
           user: data,
         });
       }

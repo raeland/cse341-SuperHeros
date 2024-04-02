@@ -9,8 +9,8 @@ const userUpdateJoiSchema = Joi.object({
   phone: userJoiSchema.extract("phone").optional(),
   // firstName: userJoiSchema.extract('firstName').optional(),
   // lastName: userJoiSchema.extract('lastName').optional(),
-  role: userJoiSchema.extract("role").optional(),
-  isActive: userJoiSchema.extract("isActive").optional(),
+  // role: userJoiSchema.extract("role").optional(),
+  // isActive: userJoiSchema.extract("isActive").optional(),
 });
 
 const validateUserUpdate = (req, res, next) => {

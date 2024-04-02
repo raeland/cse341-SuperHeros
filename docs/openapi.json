@@ -27,6 +27,12 @@
           "200": {
             "description": "Success"
           },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "500": {
             "description": "Internal server error"
           }
@@ -60,6 +66,9 @@
           "401": {
             "description": "Authentication required"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not found: Cannot update User with id. Maybe User was not found!"
           }
@@ -88,6 +97,9 @@
           "401": {
             "description": "Authentication required"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "500": {
             "description": "Internal server error"
           }
@@ -115,6 +127,12 @@
         "responses": {
           "200": {
             "description": "Success"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not found: User with id"
@@ -163,6 +181,9 @@
           "401": {
             "description": "Authentication required"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not found: Cannot update User with id. Maybe User was not found!"
           },
@@ -204,6 +225,9 @@
           },
           "401": {
             "description": "Authentication required"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not found: Cannot delete User with id. Maybe User was not found!"
@@ -254,11 +278,80 @@
           "401": {
             "description": "Authentication required"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not found: Cannot toggle User active status with id. Maybe User was not found!"
           },
           "500": {
             "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users/{id}/role": {
+      "patch": {
+        "tags": [
+          "users"
+        ],
+        "summary": "change a User role by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: User role was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found: Cannot update User role with id. Maybe User was not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }
