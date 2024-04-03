@@ -100,7 +100,7 @@ Content-Type: application/json
 {
   "name": "Spider-Man",
   "alias": "Peter Parker",
-  "powers": "Web-Spider-sense",
+  "powers": ["Super strength", "Web-slinging", "Wall-crawling", "Spider-sense"],
   "team": "Avengers",
   "origin": "Bitten by a radioactive spider",
   "universe": "Marvel",

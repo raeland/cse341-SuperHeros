@@ -14,19 +14,14 @@ exports.createSuperhero = [
       const superhero = new Superhero({
         name: req.body.name,
         alias: req.body.alias,
-        powers: req.body.alias,
+        powers: req.body.powers,
         team: req.body.team,
         origin: req.body.origin,
         universe: req.body.universe,
-        appearance: {
-          hairColor: req.body.hairColor,
-          eyeColor: req.body.eyeColor,
-          height: req.body.height,
-          weight: req.body.weight
-        },
-      firstAppearance: req.body.firstAppearance,
-      createdBy: req.body.createdBy,
-      imageURL: req.body.imageURL
+        appearance: req.body.appearance,
+        firstAppearance: req.body.firstAppearance,
+        createdBy: req.body.createdBy,
+        imageURL: req.body.imageURL
       });
   
       try {

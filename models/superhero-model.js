@@ -4,12 +4,12 @@ const SuperheroSchema = mongoose.Schema(
     {
       name: String,
       alias: String,
-      powers: String,
+      powers: Array,
       team: String,
       origin: String,
       universe: String,
       appearance: {
-        type: Map,
+        type: Array,
         of: new mongoose.Schema({
         hairColor: String,
         eyeColor: String,
