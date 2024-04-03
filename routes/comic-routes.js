@@ -103,7 +103,7 @@ module.exports = comicRouter;
           type: 'string',
           example: 'Dynamite'
         },
-        Title: {
+        title: {
           type: 'string',
           example: 'The Shadow/Batman'
         },

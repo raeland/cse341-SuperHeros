@@ -19,7 +19,7 @@ const ComicSchema = mongoose.Schema(
     publisher: {
       type: String,
     },
-    Title: {
+    title: {
       type: String,
     },
     pages: {
@@ -86,7 +86,7 @@ module.exports = {
  *         publisher:
  *           type: string
  *           description: The user's email. Must be a valid email format.
- *         Title:
+ *         title:
  *           type: string
  *           description: The user's role
  *         pages:

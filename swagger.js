@@ -37,7 +37,7 @@ const doc = {
         properties: {
           publication: { type: "string" },
           publisher: { type: "string" },
-          Title: { type: "string" },
+          title: { type: "string" },
           pages: { type: "string" },
           year: { type: "string" },
           isbn13: { type: "string" },

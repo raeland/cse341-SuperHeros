@@ -1,17 +1,17 @@
-const { User } = require('../models/user-model')
+const { Comic } = require('../models/comic-model')
 
-function findUserById(id) {
-  console.log('findUserById', id)
+function findComicById(id) {
+  console.log('findComicById', id)
   // console.log('User', User)
-  return User.findById(id)
+  return Comic.findById(id)
 }
 
-async function createUser(userData) {
-  const user = new User(userData)
-  return await user.save()
+async function createComic(comicData) {
+  const comic = new Comic(comicData)
+  return await comic.save()
 }
 
 module.exports = {
-  findUserById,
-  createUser,
+  findComicById,
+  createComic,
 }

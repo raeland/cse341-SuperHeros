@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Comic } = require("../models/comic-model");
-// const { findComicById, createComic } = require("../services/comic-services");
+const { findComicById, createComic } = require("../services/comic-services");
 //const validateComic = require("../middlewares/validate-comic");
 //const validateComicUpdate = require("../middlewares/validate-comic-update");
 
@@ -13,11 +13,13 @@ exports.createComic = [
     }
 
     const comic = new Comic({
-      comicname: req.body.comicname,
-      email: req.body.email,
-      phone: req.body.phone,
-      role: req.body.role,
-      isActive: req.body.isActive,
+      publication: req.body.publication,
+      publisher: req.body.publisher,
+      title: req.body.Title,
+      pages: req.body.pages,
+      year: req.body.year,
+      isbn13: req.body.isbn13,
+      language: req.body.language,
     });
 
     try {
