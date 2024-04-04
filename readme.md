@@ -1,10 +1,13 @@
 # Commit Process
 
-1. Pull and sync from Github
-2. Increment the version up in the package.json file
-3. Review and code compare any major changes in the code that might affect what you have been working on.
-4. Commit and Stage your code with a proper commit message
-5. 
+1. Fetch and sync from Github Master Branch
+2. Create your branch to work on.
+3. Frequently commit and stage your code
+4. Before pushing your code, do another fetch and merge to your branch any major changes
+5. Increment the version number in package.json
+6. Do a final commit and push of your code
+7. In Github, create a new pull request with all your notes of changes that you made
+8. Reach out to someone to do a pull request review.
 
 # Links
 
