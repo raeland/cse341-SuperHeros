@@ -5,7 +5,7 @@ const checkPermissions = require("../middlewares/check-permissions.js");
 
 userRouter.get(
   "/",
-  // #swagger.description = 'use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
+  // #swagger.description = 'login required - use /api/auth/github to create a new user'
   // #swagger.summary = 'get all Users'
   // #swagger.tags = ['users']
   isAuthenticated,
