@@ -7,12 +7,22 @@ Tasks - https://trello.com/b/WvTInU5J/cse341-team-project
 
 (ask for .env file)
 
-Trello Board:
-https://trello.com/invite/b/WvTInU5J/ATTIe22fcac6f47323a18bd4c51a9220775bDDCE51AD/cse341-team-project
-
 ## API Docs
 
 HOST/api/docs/
+
+## OAuth Authentication
+
+HOST/api/auth/github
+
+## Local Authentication
+
+HOST/api/auth/login
+Use an existing username in the database, and the password is always "secret"
+{
+"username": "stanlee",
+"password": "secret"
+}
 
 ## Development
 
@@ -54,6 +64,10 @@ When adding new dependencies to the project, make sure to use pnpm:
 pnpm add [package-name]
 ```
 
+By using pnpm, we ensure that everyone is using the same package manager, leading to more consistent installations and fewer 'it works on my machine' issues.
+
+Remember to replace [package-name] with the actual name of the package you want to add.
+
 Team Members (alpha order by first name):
 
 Cristian | | cdelahoze@hotmail.com
@@ -69,7 +83,3 @@ Preston | preston-bateman | prestonbbateman@gmail.com
 Rachael | raeland | rsvarady@gmail.com
 
 Ricardo | Ricardo230698 | ricardoprograming@gmail.com
-
-By using pnpm, we ensure that everyone is using the same package manager, leading to more consistent installations and fewer 'it works on my machine' issues.
-
-Remember to replace [package-name] with the actual name of the package you want to add.

@@ -1,5 +1,6 @@
 require("dotenv").config(); //just cause I need to committ something
 const express = require("express");
+const path = require("path");
 const routes = require("./routes");
 const statusRoutes = require("./routes/status-routes.js");
 
@@ -10,7 +11,8 @@ const session = require("express-session");
 const app = express();
 const { errorHandler } = require("./middlewares/error-handler");
 
-const { db, connect } = require("./db/dbConnect");
+const { db, connect } = require("./db/db-connect");
+const morgan = require("morgan");
 
 app
   .use(express.json())
@@ -30,9 +32,16 @@ app
       origin: process.env.ALLOWED_ORIGINS,
     })
   )
+  .use(morgan("dev")) // log HTTP requests to the console
+  .use(
+    "/coverage/lcov-report",
+    express.static(path.join(__dirname, "coverage/lcov-report"))
+  ) // Serve test coverage reports
   .use("/", routes)
   .use("/", statusRoutes)
   .use(errorHandler);
+
+console.log(path.join(__dirname, "coverage/lcov-report"));
 
 connect();
 

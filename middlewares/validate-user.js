@@ -1,15 +1,15 @@
 // middlewares/validateUser.js
-const { userJoiSchema } = require('../models/user-model')
+const { userJoiSchema } = require("../models/user-model");
 
 const validateUser = (req, res, next) => {
-  console.log('body', req.body)
-  const { error } = userJoiSchema.validate(req.body)
+  // console.log('body', req.body)
+  const { error } = userJoiSchema.validate(req.body);
   if (error) {
-    const err = new Error(error.details[0].message)
-    err.statusCode = 400
-    return next(err)
+    const err = new Error(error.details[0].message);
+    err.statusCode = 400;
+    return next(err);
   }
-  next()
-}
+  next();
+};
 
-module.exports = validateUser
+module.exports = validateUser;

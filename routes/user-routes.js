@@ -1,12 +1,15 @@
 const userRouter = require("express").Router();
 const userController = require("../controllers/user-controller.js");
-const { isAuthenticated } = require("../middlewares/is-authenticated.js");
+const isAuthenticated = require("../middlewares/is-authenticated.js");
+const checkPermissions = require("../middlewares/check-permissions.js");
 
 userRouter.get(
   "/",
   // #swagger.description = 'use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N'
   // #swagger.summary = 'get all Users'
   // #swagger.tags = ['users']
+  isAuthenticated,
+  checkPermissions("readUser"),
   userController.getAllUsers
 );
 
@@ -20,6 +23,8 @@ userRouter.get(
    } */
   // #swagger.summary = 'get a single User by id'
   // #swagger.tags = ['users']
+  isAuthenticated,
+  checkPermissions("readUser"),
   userController.getUserById
 );
 
@@ -45,6 +50,7 @@ userRouter.post(
   // #swagger.responses[404] = { description: 'Not found: Cannot update User with id. Maybe User was not found!' }
 
   isAuthenticated,
+  checkPermissions("updateUser"),
   (req, res, next) => {
     console.log(req.body);
     next();
@@ -57,6 +63,7 @@ userRouter.put(
   // #swagger.summary = 'update a User by id'
   // #swagger.tags = ['users']
   isAuthenticated,
+  checkPermissions("updateUser", true),
   userController.updateUserById
 );
 
@@ -65,6 +72,7 @@ userRouter.delete(
   // #swagger.summary = 'delete a single User by id'
   // #swagger.tags = ['users']
   isAuthenticated,
+  checkPermissions("updateUser"),
   userController.deleteUserById
 );
 
@@ -73,6 +81,7 @@ userRouter.delete(
   // #swagger.summary = 'delete all Users'
   // #swagger.tags = ['users']
   isAuthenticated,
+  checkPermissions("updateUser"),
   userController.deleteAllUsers
 );
 
@@ -81,10 +90,18 @@ userRouter.patch(
   // #swagger.summary = 'toggle a User active status by id'
   // #swagger.tags = ['users']
   isAuthenticated,
+  checkPermissions("updateUser"),
   userController.toggleUserActiveStatus
 );
 
-// userRouter.use(userController.errorHandler)
+userRouter.patch(
+  "/:id/role",
+  // #swagger.summary = 'change a User role by id'
+  // #swagger.tags = ['users']
+  isAuthenticated,
+  checkPermissions("updateUser"),
+  userController.updateUserRoleById
+);
 
 module.exports = userRouter;
 

@@ -2,21 +2,27 @@
 ###
 GET http://localhost:8080/
 ###
-GET http://localhost:8080/api/auth/login/
+POST http://localhost:8080/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "jackkirby",
+  "password": "secret"
+}
 ###
 GET http://localhost:8080/api/auth/logout/
 ###
 GET http://localhost:8080/api/users/ HTTP/1.1
 ###
-GET http://localhost:8080/api/users/65fa431d942aa0637e1f34b5
+GET http://localhost:8080/api/users/6604b8139399fc74ed9353a0
 ###
 POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-   "username": "joel",
-   "email": "joelcannon@mac.co",
-   "phone": "+15412440898",
+   "username": "stanlee2",
+   "email": "stanlee@marvel.com",
+   "phone": "+15412440891",
    "role": "Admin"
 }
 ###
@@ -42,44 +48,52 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:8080/api/users/65fa4317942aa0637e1f34b3/toggleActiveStatus
+PATCH http://localhost:8080/api/users/6604b8139399fc74ed9353a0/toggleActiveStatus
 Content-Type: application/json
 
 
 // RENDER.COM
 ###
-GET https://superheros-6636.onrender.com//api/auth/login/
+GET https://superheros-6636.onrender.com/
 ###
-GET https://superheros-6636.onrender.com//api/auth/logout/
-###
-GET https://superheros-6636.onrender.com//api/users/
-###
-GET https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f
-###
-POST https://superheros-6636.onrender.com//api/users
+POST https://superheros-6636.onrender.com/api/auth/login/
 Content-Type: application/json
 
 {
-   "username": "joel",
-   "email": "joelcannon@mac.co",
-      "phone": "+15412440898",
-"role": "Admin"
+  "username": "jackkirby",
+  "password": "secret"
 }
-
 ###
-POST https://superheros-6636.onrender.com//api/users
+GET https://superheros-6636.onrender.com/api/auth/logout/
+###
+GET https://superheros-6636.onrender.com/api/users/
+###
+GET https://superheros-6636.onrender.com/api/users/6604b8139399fc74ed9353a0
+###
+POST https://superheros-6636.onrender.com/api/users
+Content-Type: application/json
+
+{
+   "username": "stanlee",
+   "email": "stanlee@marvel.com",
+   "phone": "+15412440891",
+   "role": "Admin"
+}
+###
+POST https://superheros-6636.onrender.com/api/users
 Content-Type: application/json
 
 {
    "username": "joelcannon",
    "email": "joelcannon@gmail.com",
-      "phone": "+15412440896",
-"role": "Editor"
+   "phone": "+15412440896",
+   "role": "Editor"
 }
+
 ###
-DELETE https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f
+DELETE https://superheros-6636.onrender.com/api/users/
 ###
-PUT https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f
+PUT https://superheros-6636.onrender.com/api/users/65f686bb683dbbdb77013770
 Content-Type: application/json
 
 {
@@ -88,5 +102,5 @@ Content-Type: application/json
 }
 
 ###
-PATCH https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f/toggleActiveStatus
+PATCH https://superheros-6636.onrender.com/api/users/6604b8139399fc74ed9353a0/toggleActiveStatus
 Content-Type: application/json

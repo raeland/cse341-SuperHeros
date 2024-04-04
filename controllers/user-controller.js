@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { User } = require("../models/user-model");
+const { UserModel } = require("../models/user-model");
 const { findUserById, createUser } = require("../services/user-services");
 const validateUser = require("../middlewares/validate-user");
 const validateUserUpdate = require("../middlewares/validate-user-update");
@@ -12,7 +12,7 @@ exports.createUser = [
       return res.status(400).json({ message: "Content can not be empty!" });
     }
 
-    const user = new User({
+    const user = new UserModel({
       username: req.body.username,
       email: req.body.email,
       phone: req.body.phone,
@@ -34,7 +34,7 @@ exports.getAllUsers = [
     // #swagger.responses[200] = { description: 'Success' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
-      const data = await User.find();
+      const data = await UserModel.find();
       res.json(data);
     } catch (err) {
       next(err);
@@ -96,7 +96,7 @@ exports.updateUserById = [
     const id = req.params.id;
 
     try {
-      const data = await User.findByIdAndUpdate(id, req.body, {
+      const data = await UserModel.findByIdAndUpdate(id, req.body, {
         useFindAndModify: false,
         new: true,
       });
@@ -125,7 +125,7 @@ exports.deleteUserById = [
     const id = req.params.id;
 
     try {
-      const data = await User.findByIdAndRemove(id);
+      const data = await UserModel.findByIdAndRemove(id);
 
       if (!data) {
         return res.status(404).json({
@@ -145,7 +145,7 @@ exports.deleteAllUsers = [
     // #swagger.responses[204] = { description: 'Success: Users were deleted successfully!' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
-      const data = await User.deleteMany({});
+      const data = await UserModel.deleteMany({});
       res.status(204).json({
         message: `${data.deletedCount} Users were deleted successfully!`,
       });
@@ -172,10 +172,9 @@ exports.toggleUserActiveStatus = [
         .json({ message: "Data to update can not be empty!" });
     }
 
-    const id = req.params.id;
-
     try {
-      const user = await User.findById(id);
+      const id = req.params.id;
+      const user = await UserModel.findById(id);
       if (!user) {
         return res.status(404).json({
           message: `Cannot toggle User active status with id=${id}. Maybe User was not found!`,
@@ -185,6 +184,45 @@ exports.toggleUserActiveStatus = [
         const data = await user.save();
         res.status(200).json({
           message: `User active status was toggled successfully. Current status is ${user.isActive ? "active" : "inactive"}.`,
+          user: data,
+        });
+      }
+    } catch (err) {
+      next(err);
+    }
+  },
+];
+
+exports.updateUserRoleById = [
+  async (req, res, next) => {
+    // #swagger.parameters['id'] = { description: 'User ID' }
+    /* #swagger.responses[200] = {
+      description: 'Success: User role was updated successfully.',
+      schema: { $ref: '#/components/schemas/User' }
+    } */
+    // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
+    // #swagger.responses[404] = { description: 'Not found: Cannot update User role with id. Maybe User was not found!' }
+    // #swagger.responses[500] = { description: 'Internal server error' }
+
+    if (!req.body) {
+      return res
+        .status(400)
+        .json({ message: "Data to update can not be empty!" });
+    }
+
+    try {
+      const id = req.params.id;
+      const newRole = req.body.role;
+      const user = await UserModel.findById(id);
+      if (!user) {
+        return res.status(404).json({
+          message: `Cannot update User role with id=${id}. Maybe User was not found!`,
+        });
+      } else {
+        user.role = newRole;
+        const data = await user.save();
+        res.status(200).json({
+          message: `User role was updated successfully. Current role is ${user.role}.`,
           user: data,
         });
       }

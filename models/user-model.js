@@ -1,18 +1,13 @@
 const mongoose = require("mongoose");
 const isPhoneNumberValid = require("../utils/phone-validator");
 const Joi = require("joi");
-
-const Roles = {
-  VIEWER: "Viewer",
-  EDITOR: "Editor",
-  ADMIN: "Admin",
-};
+const { ROLES, ROLE_PERMISSIONS } = require("./roles-model");
 
 const UserSchema = mongoose.Schema(
   {
-    githubId: String,
-    displayName: String,
-    profileUrl: String,
+    // githubId: String,
+    // displayName: String,
+    // profileUrl: String,
     username: {
       type: String,
       required: true,
@@ -29,6 +24,7 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: false,
       unique: true,
+      sparse: true,
       validate: {
         validator: function (v) {
           return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(v);
@@ -45,13 +41,14 @@ const UserSchema = mongoose.Schema(
         message: (props) =>
           `${props.value} is not a valid phone number. ie:(+18881234567)`,
       },
-      required: [true, "User phone number required"],
+      required: false,
       unique: true,
+      sparse: true,
     },
     role: {
       type: String,
-      enum: Object.values(Roles),
-      default: Roles.VIEWER,
+      enum: Object.values(ROLES),
+      default: ROLES.VIEWER,
     },
     isActive: {
       type: Boolean,
@@ -66,33 +63,36 @@ const UserSchema = mongoose.Schema(
 
 UserSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
   const result = await this.findOne(condition);
-  return result || this.create(doc);
+  if (result) {
+    return result;
+  } else {
+    return await this.create(doc);
+  }
 };
 
 UserSchema.pre("save", async function (next) {
-  if (!(await isPhoneNumberValid(this.phone))) {
-    throw new Error("Phone number is not valid SMS-capable number!");
+  if (this.phone && !(await isPhoneNumberValid(this.phone))) {
+    throw new Error("Phone number is not a valid SMS-capable number!");
   }
   next();
 });
 
-const User = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);
 
 const userJoiSchema = Joi.object({
   username: Joi.string()
     .pattern(new RegExp("^[a-zA-Z0-9_-]{3,30}$"))
     .required(),
-  email: Joi.string().email().required(),
-  phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")).required(),
+  email: Joi.string().email(),
+  phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")),
   role: Joi.string()
-    .valid(...Object.values(Roles))
-    .default(Roles.VIEWER),
+    .valid(...Object.values(ROLES))
+    .default(ROLES.VIEWER),
   isActive: Joi.boolean().default(true),
 });
 
 module.exports = {
-  Roles,
-  User,
+  UserModel,
   userJoiSchema,
 };
 

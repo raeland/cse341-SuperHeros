@@ -1,4 +1,3 @@
-// dbConnect.js
 const mongoose = require("mongoose");
 const dbConfig = require("../config/db-config.js");
 const UserModel = require("../models/user-model.js");
