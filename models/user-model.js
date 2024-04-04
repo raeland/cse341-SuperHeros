@@ -77,7 +77,7 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-const User = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);
 
 const userJoiSchema = Joi.object({
   username: Joi.string()
@@ -92,7 +92,7 @@ const userJoiSchema = Joi.object({
 });
 
 module.exports = {
-  User,
+  UserModel,
   userJoiSchema,
 };
 

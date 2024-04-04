@@ -1,13 +1,13 @@
-const { User } = require("../models/user-model");
+const { UserModel } = require("../models/user-model");
 
 function findUserById(id) {
   // console.log("findUserById", id);
   // console.log('User', User)
-  return User.findById(id);
+  return UserModel.findById(id);
 }
 
 async function findUserByUsername(username) {
-  return User.findOne({ username: username });
+  return UserModel.findOne({ username: username });
 }
 
 async function createUser(userData) {
@@ -16,7 +16,7 @@ async function createUser(userData) {
 }
 
 async function findOrCreateUser(profile) {
-  const user = await User.findOrCreate(
+  const user = await UserModel.findOrCreate(
     { username: profile.username },
     {
       username: profile.username,

@@ -3,7 +3,8 @@ const swaggerAutogen = require("swagger-autogen")({ openapi: "3.0.0" });
 const doc = {
   info: {
     title: "superhero-api",
-    description: "BYUI CSE341 Team 19 API Documentation for superhero project",
+    description: `BYUI CSE341 Team 19 API Documentation for superhero project. 
+    [View Local Code Coverage Report](http://localhost:8080/coverage/lcov-report/index.html)`,
     version: "1.0.0",
   },
   servers: [

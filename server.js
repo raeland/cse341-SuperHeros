@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const path = require("path");
 const routes = require("./routes");
 const statusRoutes = require("./routes/status-routes.js");
 
@@ -32,9 +33,15 @@ app
     })
   )
   .use(morgan("dev")) // log HTTP requests to the console
+  .use(
+    "/coverage/lcov-report",
+    express.static(path.join(__dirname, "coverage/lcov-report"))
+  ) // Serve test coverage reports
   .use("/", routes)
   .use("/", statusRoutes)
   .use(errorHandler);
+
+console.log(path.join(__dirname, "coverage/lcov-report"));
 
 connect();
 

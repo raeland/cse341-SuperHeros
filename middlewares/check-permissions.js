@@ -6,10 +6,10 @@ function checkPermissions(requiredPermission, selfAllowed) {
     const userRole = user.role;
     const userPermissions = ROLE_PERMISSIONS[userRole];
 
-    console.log(requiredPermission, user.username, userRole);
+    // console.log(requiredPermission, user.username, userRole);
 
     if (!userPermissions) {
-      return res.status(403).send("Forbidden: User role not found");
+      return res.status(403).send("Forbidden: Unrecognized User Role");
     }
 
     if (userPermissions.includes(requiredPermission) && req.user.isActive) {
@@ -21,7 +21,7 @@ function checkPermissions(requiredPermission, selfAllowed) {
     ) {
       next();
     } else {
-      res.status(403).send("Forbidden");
+      res.status(403).send("Forbidden: Permission denied");
     }
   };
 }
