@@ -1,6 +1,6 @@
 {
   "name": "superhero-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BYUI CSE341 Team 19 project",
   "main": "server.js",
   "scripts": {
