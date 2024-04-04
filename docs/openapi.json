@@ -254,7 +254,7 @@
           "users"
         ],
         "summary": "get all Users",
-        "description": "use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "login required - use /api/auth/github to create a new user",
         "responses": {
           "200": {
             "description": "Success"
@@ -804,38 +804,17 @@
           "name": "User"
         }
       },
-<<<<<<< HEAD
       "Comic": {
-=======
-      "Login": {
->>>>>>> master
         "type": "object",
         "properties": {
           "type": {
             "type": "string",
             "example": "object"
           },
-<<<<<<< HEAD
           "properties": {
             "type": "object",
             "properties": {
               "publication": {
-=======
-          "required": {
-            "type": "array",
-            "example": [
-              "username",
-              "password"
-            ],
-            "items": {
-              "type": "string"
-            }
-          },
-          "properties": {
-            "type": "object",
-            "properties": {
-              "username": {
->>>>>>> master
                 "type": "object",
                 "properties": {
                   "type": {
@@ -844,7 +823,6 @@
                   }
                 }
               },
-<<<<<<< HEAD
               "publisher": {
                 "type": "object",
                 "properties": {
@@ -891,9 +869,6 @@
                 }
               },
               "language": {
-=======
-              "password": {
->>>>>>> master
                 "type": "object",
                 "properties": {
                   "type": {
@@ -906,11 +881,52 @@
           }
         },
         "xml": {
-<<<<<<< HEAD
           "name": "Comic"
-=======
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "object"
+          },
+          "required": {
+            "type": "array",
+            "example": [
+              "username",
+              "password"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "username": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "password": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "xml": {
           "name": "Login"
->>>>>>> master
         }
       }
     },

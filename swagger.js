@@ -32,7 +32,6 @@ const doc = {
           isActive: { type: "boolean" },
         },
       },
-<<<<<<< HEAD
       Comic: {
         type: "object",
 
@@ -44,14 +43,14 @@ const doc = {
           year: { type: "string" },
           isbn13: { type: "string" },
           language: { type: "string" },
-=======
+        },
+      },
       Login: {
         type: "object",
         required: ["username", "password"],
         properties: {
           username: { type: "string" },
           password: { type: "string" },
->>>>>>> master
         },
       },
     },
