@@ -91,7 +91,13 @@ Content-Type: application/json
 PATCH https://superheros-6636.onrender.com//api/users/65f68a1a683dbbdb7701378f/toggleActiveStatus
 Content-Type: application/json
 
+
 // SUPERHERO
+###
+GET http://localhost:8080/api/superhero/
+
+###
+GET http://localhost:8080/api/superhero/660b6cf4882c951724a34e48
 
 ###
 POST http://localhost:8080/api/superhero
@@ -114,3 +120,31 @@ Content-Type: application/json
   "createdBy": "Stan Lee and Steve Ditko",
   "imageURL": "https//example.com/spider-man.jpg"
 }
+
+###
+PUT http://localhost:8080/api/superhero/660b6cf4882c951724a34e48
+Content-Type: application/json
+
+{
+  "name": "Spider-Man",
+  "alias": "Peter Parker",
+  "powers": ["Super strength", "Web-slinging", "Wall-crawling", "Spider-sense"],
+  "team": "Avengers",
+  "origin": "Bitten by a radioactive spider",
+  "universe": "Marvel",
+  "appearance": {
+    "hairColor": "Brown",
+    "eyeColor": "Hazel",
+    "height": "5/10",
+    "weight": "180 lbs"
+  },
+  "firstAppearance": "Amazing Fantasy #15",
+  "createdBy": "Stan Lee and Steve Ditko",
+  "imageURL": "https//example.com/spider-man.jpg"
+}
+
+###
+DELETE http://localhost:8080/api/superhero/660cb8db1894a778484d9ebf/
+
+###
+DELETE http://localhost:8080/api/superhero/
