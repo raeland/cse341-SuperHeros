@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config(); //just cause I need to committ something
 const express = require("express");
 const routes = require("./routes");
 const statusRoutes = require("./routes/status-routes.js");
