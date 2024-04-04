@@ -1,3 +1,11 @@
+# Commit Process
+
+1. Pull and sync from Github
+2. Increment the version up in the package.json file
+3. Review and code compare any major changes in the code that might affect what you have been working on.
+4. Commit and Stage your code with a proper commit message
+5. 
+
 # Links
 
 GitHub - https://github.com/raeland/cse341-SuperHeros

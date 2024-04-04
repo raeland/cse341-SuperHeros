@@ -8,5 +8,6 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.User = require("./user-model.js");
+db.Comic = require("./comic-model.js");
 
 module.exports = db;

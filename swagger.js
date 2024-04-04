@@ -32,12 +32,26 @@ const doc = {
           isActive: { type: "boolean" },
         },
       },
+<<<<<<< HEAD
+      Comic: {
+        type: "object",
+
+        properties: {
+          publication: { type: "string" },
+          publisher: { type: "string" },
+          title: { type: "string" },
+          pages: { type: "string" },
+          year: { type: "string" },
+          isbn13: { type: "string" },
+          language: { type: "string" },
+=======
       Login: {
         type: "object",
         required: ["username", "password"],
         properties: {
           username: { type: "string" },
           password: { type: "string" },
+>>>>>>> master
         },
       },
     },
