@@ -4,10 +4,11 @@ const apiRouter = express.Router()
 
 const comicRoutes = require('./comic-routes.js') // HOT
 const userRoutes = require('./user-routes.js')
+const movieRouter = require('./movie-route.js')
 const authRoutes = require('./auth-routes.js')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../docs/openapi.json')
-const movieRouter = require('./movie-route.js')
+
 
 // const passport = require('passport')
 router.use('/api', apiRouter)
