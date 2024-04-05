@@ -34,7 +34,6 @@ const doc = {
       },
       Comic: {
         type: "object",
-
         properties: {
           publication: { type: "string" },
           publisher: { type: "string" },
@@ -45,6 +44,22 @@ const doc = {
           language: { type: "string" },
         },
       },
+
+      movie: {
+        type: "object",
+        required: ["title", "year", "superHeroMain"],
+        properties: {
+          title: { type: "string" },
+          year: { type: "number" },
+          runtime: { type: "number" },
+          director: { type: "string" },
+          comicWorld: { type: "string" },
+          superHeroMain: { type: "string" },
+          superVillain: { type: "string" },
+          superHeroSupport: { type: "string" },
+        },
+      },
+  
       Login: {
         type: "object",
         required: ["username", "password"],
