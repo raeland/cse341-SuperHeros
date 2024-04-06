@@ -291,6 +291,194 @@
         }
       }
     },
+    "/api/superhero/": {
+      "get": {
+        "tags": [
+          "superheros"
+        ],
+        "summary": "get all Superheros",
+        "description": "use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "superhero"
+        ],
+        "summary": "Add a new Superhero",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Success: Superhero was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Superhero"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Superhero"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update Superhero with id. Maybe Superhero was not found!"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Superhero"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "superheros"
+        ],
+        "summary": "delete all Superheros",
+        "description": "",
+        "responses": {
+          "204": {
+            "description": "Success: Superheros were deleted successfully!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/superhero/{id}": {
+      "get": {
+        "tags": [
+          "superheros"
+        ],
+        "summary": "get a single Superhero by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the superhero to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found: Superhero with id"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "superheros"
+        ],
+        "summary": "update a Superhero by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Spuerhero was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Superhero"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Superhero"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Success: Superheros were deleted successfully!"
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot delete Superhero with id. Maybe Superhero was not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Superhero"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "superheros"
+        ],
+        "summary": "delete a single Superhero by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Superhero ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success: Superhero was deleted successfully!"
+          },
+          "404": {
+            "description": "Not found: Cannot delete Superhero with id. Maybe Superhero was not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "tags": [
@@ -380,6 +568,154 @@
         "xml": {
           "name": "User"
         }
+      },
+      "Superhero": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "object"
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "alias": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "powers": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "array"
+                  }
+                }
+              },
+              "team": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "universe": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "appearance": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "object"
+                  },
+                  "properties": {
+                    "type": "object",
+                    "properties": {
+                      "hairColor": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "string"
+                          }
+                        }
+                      },
+                      "eyeColor": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "string"
+                          }
+                        }
+                      },
+                      "height": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "string"
+                          }
+                        }
+                      },
+                      "weight": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "firstAppearance": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "createdBy": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "imageURL": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "Superhero"
+        }
       }
     },
     "securitySchemes": {
@@ -390,7 +726,8 @@
             "authorizationUrl": "https://github.com/login/oauth/authorize",
             "tokenUrl": "https://github.com/login/oauth/access_token",
             "scopes": {
-              "read:user": "Read user data"
+              "read:user": "Read user data",
+              "read:superhero": "Read superhero data"
             }
           }
         }

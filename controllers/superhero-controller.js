@@ -1,11 +1,11 @@
 require("dotenv").config();
 const { Superhero } = require("../models/superhero-model");
-const {
-  findSuperheroById,
-  createSuperhero,
-} = require("../services/superhero-services");
+const { findSuperheroById, createSuperhero, } = require("../services/superhero-services");
+const validateSuperhero = require("../middlewares/validate-superhero");
+const validateSuperheroUpdate = require("../middlewares/validate-superhero-update");
 
 exports.createSuperhero = [
+  validateSuperhero,
   async (req, res, next) => {
     // #swagger.responses[500] = { description: 'Internal server error' }
     if (!req.body.name) {
@@ -73,7 +73,7 @@ exports.getSuperheroById = [
 
 
 exports.updateSuperheroById = [
- 
+  validateSuperheroUpdate,
   // #swagger.parameters['id'] = { description: Superhero ID' }
   /* #swagger.requestBody = {
       required: true,

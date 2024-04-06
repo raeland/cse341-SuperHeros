@@ -31,6 +31,28 @@ const doc = {
           isActive: { type: "boolean" },
         },
       },
+      Superhero: {
+        type: "object",
+        properties: {
+          name: { type: "string" },
+          alias: { type: "string" },
+          powers: { type: "array" },
+          team: { type: "string" },
+          origin: { type: "string" },
+          universe: { type: "string" },
+          appearance: { 
+            type: "object",
+            properties: {
+            hairColor: { type: "string" },
+            eyeColor: { type: "string" },
+            height: { type: "string" },
+            weight: { type: "string" }
+          }},
+          firstAppearance: { type: "string" },
+          createdBy: { type: "string" },
+          imageURL: { type: "string" },
+        },
+      },
     },
     securitySchemes: {
       OAuth2: {
@@ -40,7 +62,7 @@ const doc = {
             authorizationUrl: "https://github.com/login/oauth/authorize",
             tokenUrl: "https://github.com/login/oauth/access_token",
             scopes: {
-              "read:user": "Read user data",
+              "read:user": "Read user data", "read:superhero": "Read superhero data",
             },
           },
         },
