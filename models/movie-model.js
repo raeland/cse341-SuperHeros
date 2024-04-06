@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
-const Joi = require("joi");
+const mongoose = require("mongoose")
+const movieJoi = require("joi")
 
 const Roles = {
   VIEWER: "Viewer",
   EDITOR: "Editor",
   ADMIN: "Admin",
-};
+}
 
 const movieSchema = mongoose.Schema(
   {
-    githubId: String,
-    displayName: String,
-    profileUrl: String,
+    //githubId: String,
+    //displayName: String,
+    //profileUrl: String,
     id: {
       type: String,
     },
@@ -46,17 +46,10 @@ const movieSchema = mongoose.Schema(
   }
 )
 
-movieSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
+movieSchema.statics.findOrAddMovie = async function findOrAddMovie(condition, doc) {
   const result = await this.findOne(condition)
   return result || this.create(doc)
 }
-/*
-movieSchema.pre("save", async function (next) {
-  if (!(await isPhoneNumberValid(this.phone))) {
-    throw new Error("Phone number is not valid SMS-capable number!")
-  }
-  next()
-})   *********************************/
 
 const movie = mongoose.model("Movie", movieSchema);
 /*
@@ -64,7 +57,6 @@ const userJoiSchema = Joi.object({
   username: Joi.string()
     .pattern(new RegExp("^[a-zA-Z0-9_-]{3,30}$"))
     .required(),
-  email: Joi.string().email().required(),
   phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")).required(),
   role: Joi.string()
     .valid(...Object.values(Roles))
@@ -84,24 +76,27 @@ module.exports = {
  *     Comic:
  *       type: object
  *       properties:
- *         publication:
+ *        title:
  *           type: string
- *           description: The user's username. Must be at least 3 characters long and contain no spaces.
- *         publisher:
+ *           description: Accurate and Complete Title of Movie
+ *        year:
+ *           type: Number
+ *           description: Year Movie was released to Theaters
+ *        runtime: Number
+ *           description: length of movie, start to finish, in minutes:seconds
+ *        director:
  *           type: string
- *           description: The user's email. Must be a valid email format.
- *         title:
+ *           description: Full Name of Director
+ *        comicWorld:
  *           type: string
- *           description: The user's role
- *         pages:
+ *           description: DC, Marvel, Wonderland, Narnia, Your Mom's house
+ *        superHeroMain:
  *           type: string
- *           description: The active status of the user
- *         year: Number
- *           description: The active status of the user
- *        isbn13:
+ *           description: NOT there real name but there HERO name
+ *        superVillain:
  *           type: string
- *           description: The active status of the user
- *        language:
+ *           description: Villain or Villains in Movie
+ *        superHeroSupport:
  *           type: string
- *           description: The active status of the user
+ *           description: Side Kick Name and other Heros in Movie
  */

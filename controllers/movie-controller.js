@@ -12,7 +12,7 @@ exports.createMovie = [
       return res.status(400).json({ message: "Content can not be empty!" })
     }
     const movie = new movie({
-      title: req.body.Title,
+      title: req.body.title,
       year: req.body.year,
       runtime: req.body.runtime,
       director: req.body.director,
@@ -55,7 +55,28 @@ exports.getMovieById = [
       if (!data) {
         return res
           .status(404)
-          .json({ message: "Not found Movie with id " + id })
+          .json({ message: "Movie with id " + id + " Not found" })
+      }
+      res.json(data)
+    } catch (err) {
+      next(err)
+    }
+  },
+]
+
+exports.getMovieByName = [
+  async (req, res, next) => {
+    // #swagger.parameters['id'] = { description: 'Movie ID' }
+    // #swagger.responses[200] = { description: 'Success' }
+    // #swagger.responses[404] = { description: 'Not found: Movie with id' }
+    // #swagger.responses[500] = { description: 'Internal server error' }
+    const id = req.params.id;
+    try {
+      const data = await findMovieByName(movieName)
+      if (!data) {
+        return res
+          .status(404)
+          .json({ message: "Movie " + movieName + " Not found" })
       }
       res.json(data)
     } catch (err) {
@@ -134,20 +155,20 @@ exports.deleteMovieById = [
   },
 ]
 
-exports.deleteAllMovies = [
-  async (req, res, next) => {
+//exports.deleteAllMovies = [
+  //async (req, res, next) => {
     // #swagger.responses[204] = { description: 'Success: Movies were deleted successfully!' }
     // #swagger.responses[500] = { description: 'Internal server error' }
-    try {
-      const data = await movie.deleteMany({})
-      res.status(204).json({
-        message: `${data.deletedCount} Comics were deleted successfully!`,
-      })
-    } catch (err) {
-      next(err)
-    }
-  },
-]
+    //try {
+      //const data = await movie.deleteMany({})
+      //res.status(204).json({
+      //  message: `${data.deletedCount} Comics were deleted successfully!`,
+      //})
+    //} catch (err) {
+      //next(err)
+    //}
+  //},
+//]
 
 exports.toggleMovieActiveStatus = [
   async (req, res, next) => {
