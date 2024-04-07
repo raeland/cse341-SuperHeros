@@ -594,7 +594,7 @@
           "movies"
         ],
         "summary": "get all movies",
-        "description": "use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "description": "",
         "responses": {
           "200": {
             "description": "Success"
@@ -651,11 +651,8 @@
         "summary": "delete all Movies",
         "description": "",
         "responses": {
-          "204": {
-            "description": "Success: Movies were deleted successfully!"
-          },
-          "500": {
-            "description": "Internal server error"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -767,6 +764,45 @@
           },
           "404": {
             "description": "Not found: Cannot delete Movie with id. Movie not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/movie/{movieName}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "get a single movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "movieName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "description": "ID of the user to retrieve",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found: Movie with id"
           },
           "500": {
             "description": "Internal server error"
