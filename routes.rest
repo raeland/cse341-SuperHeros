@@ -97,7 +97,7 @@ Content-Type: application/json
 GET http://localhost:8080/api/superhero/
 
 ###
-GET http://localhost:8080/api/superhero/660df6b547e5da7dcfbe5732
+GET http://localhost:8080/api/superhero/660f6a08a0684518208f504f
 
 ###
 POST http://localhost:8080/api/superhero
@@ -122,7 +122,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/api/superhero/660f6a08a0684518208f504f
+PUT http://localhost:8080/api/superhero/6612070e9027f1e589284603
 Content-Type: application/json
 
 {
@@ -144,7 +144,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/superhero/660df6b547e5da7dcfbe5732/
+DELETE http://localhost:8080/api/superhero/6612070e9027f1e589284603/
 
 ###
 DELETE http://localhost:8080/api/superhero/
