@@ -65,6 +65,7 @@ const doc = {
           language: { type: "string" },
         },
       },
+<<<<<<< HEAD
 
       Movie: {
         type: "object",
@@ -81,6 +82,20 @@ const doc = {
         },
       },
 
+=======
+      Hero: {
+        type: "object",
+
+        properties: {
+          name: { type: "string" },
+          identity: { type: "string" },
+          creators: { type: "array" },
+          powers: { type: "array" },
+          createdYear: { type: "string" },
+          universe: { type: "string" },
+        },
+      },
+>>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
       Login: {
         type: "object",
         required: ["username", "password"],
