@@ -248,6 +248,274 @@
         }
       }
     },
+    "/api/movie/": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "get all movies",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "Add a new Movie",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Success: Movie was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Movie"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "delete all Movies",
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/movie/{id}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "get a single movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the user to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found: Movie with id"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "update a Movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Movie ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Movie was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Movie"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "delete a single Movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Movie ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success: Movie was deleted successfully!"
+          },
+          "404": {
+            "description": "Not found: Cannot delete Movie with id. Movie not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/movie/{movieName}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "get a single movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "movieName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "description": "ID of the user to retrieve",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found: Movie with id"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/movie/{id}/toggleActiveStatus": {
+      "patch": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "toggle a Movie active status by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Movie ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Movie active status was toggled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot toggle Movie active status with id. Movie not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
     "/api/users/": {
       "get": {
         "tags": [
@@ -588,270 +856,16 @@
         }
       }
     },
-    "/api/movie/": {
+    "/api/version/": {
       "get": {
         "tags": [
-          "movies"
+          "status"
         ],
-        "summary": "get all movies",
+        "summary": "report API Version",
         "description": "",
         "responses": {
           "200": {
-            "description": "Success"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "Add a new Movie",
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "Success: Movie was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request: Data to update can not be empty!"
-          },
-          "404": {
-            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Movie"
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "delete all Movies",
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api/movie/{id}": {
-      "get": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "get a single movie by id",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "ID of the user to retrieve"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "404": {
-            "description": "Not found: Movie with id"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "update a Movie by id",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Movie ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success: Movie was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request: Data to update can not be empty!"
-          },
-          "404": {
-            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Movie"
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "delete a single Movie by id",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Movie ID"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Success: Movie was deleted successfully!"
-          },
-          "404": {
-            "description": "Not found: Cannot delete Movie with id. Movie not found!"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      }
-    },
-    "/api/movie/{movieName}": {
-      "get": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "get a single movie by id",
-        "description": "",
-        "parameters": [
-          {
-            "name": "movieName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "id",
-            "description": "ID of the user to retrieve",
-            "in": "path",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "404": {
-            "description": "Not found: Movie with id"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      }
-    },
-    "/api/movie/{id}/toggleActiveStatus": {
-      "patch": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "toggle a Movie active status by id",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Movie ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success: Movie active status was toggled successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request: Data to update can not be empty!"
-          },
-          "404": {
-            "description": "Not found: Cannot toggle Movie active status with id. Movie not found!"
-          },
-          "500": {
-            "description": "Internal server error"
+            "description": "OK"
           }
         }
       }
