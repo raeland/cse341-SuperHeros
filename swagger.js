@@ -32,6 +32,27 @@ const doc = {
           isActive: { type: "boolean" },
         },
       },
+      Organization: {
+        type: "object",
+        properties: {
+          name: { type: "string" },
+          email: { type: "string" },
+          phone: { type: "string" },
+          address: { type: "string" },
+          website: { type: "string" },
+          description: { type: "string" },
+          isActive: { type: "boolean" },
+          members: {
+            type: "array",
+            items: {
+              $ref: "#/definitions/User",
+            },
+          },
+          owner: {
+            $ref: "#/definitions/User",
+          },
+        },
+      },
       Comic: {
         type: "object",
         properties: {
@@ -45,7 +66,7 @@ const doc = {
         },
       },
 
-      movie: {
+      Movie: {
         type: "object",
         required: ["title", "year", "superHeroMain"],
         properties: {
@@ -59,7 +80,7 @@ const doc = {
           superHeroSupport: { type: "string" },
         },
       },
-  
+
       Login: {
         type: "object",
         required: ["username", "password"],

@@ -29,7 +29,7 @@ exports.createUser = [
   },
 ];
 
-exports.getAllUsers = [
+exports.getAllOrganizations = [
   async (req, res, next) => {
     // #swagger.responses[200] = { description: 'Success' }
     // #swagger.responses[500] = { description: 'Internal server error' }
