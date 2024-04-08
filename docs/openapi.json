@@ -248,15 +248,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "/api/movie/": {
-      "get": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "get all movies",
-        "description": "",
-=======
     "/api/hero/": {
       "get": {
         "tags": [
@@ -264,7 +255,6 @@
         ],
         "summary": "get all comics",
         "description": "use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         "responses": {
           "200": {
             "description": "Success"
@@ -276,19 +266,6 @@
       },
       "post": {
         "tags": [
-<<<<<<< HEAD
-          "movies"
-        ],
-        "summary": "Add a new Movie",
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "Success: Movie was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-=======
           "comics"
         ],
         "summary": "Add a new Comic",
@@ -300,16 +277,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comic"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 }
               },
               "application/xml": {
                 "schema": {
-<<<<<<< HEAD
-                  "$ref": "#/components/schemas/Movie"
-=======
                   "$ref": "#/components/schemas/Comic"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 }
               }
             }
@@ -318,11 +290,7 @@
             "description": "Bad request: Data to update can not be empty!"
           },
           "404": {
-<<<<<<< HEAD
-            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
-=======
             "description": "Not found: Cannot update User with id. Maybe User was not found!"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           }
         },
         "requestBody": {
@@ -330,11 +298,7 @@
           "content": {
             "application/json": {
               "schema": {
-<<<<<<< HEAD
-                "$ref": "#/components/schemas/Movie"
-=======
                 "$ref": "#/components/schemas/Comic"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
               }
             }
           }
@@ -342,15 +306,6 @@
       },
       "delete": {
         "tags": [
-<<<<<<< HEAD
-          "movies"
-        ],
-        "summary": "delete all Movies",
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-=======
           "comics"
         ],
         "summary": "delete all Comics",
@@ -361,26 +316,16 @@
           },
           "500": {
             "description": "Internal server error"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           }
         }
       }
     },
-<<<<<<< HEAD
-    "/api/movie/{id}": {
-      "get": {
-        "tags": [
-          "movies"
-        ],
-        "summary": "get a single movie by id",
-=======
     "/api/hero/{id}": {
       "get": {
         "tags": [
           "comics"
         ],
         "summary": "get a single comic by id",
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         "description": "",
         "parameters": [
           {
@@ -398,11 +343,7 @@
             "description": "Success"
           },
           "404": {
-<<<<<<< HEAD
-            "description": "Not found: Movie with id"
-=======
             "description": "Not found: Hero with id"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           },
           "500": {
             "description": "Internal server error"
@@ -411,15 +352,9 @@
       },
       "put": {
         "tags": [
-<<<<<<< HEAD
-          "movies"
-        ],
-        "summary": "update a Movie by id",
-=======
           "comics"
         ],
         "summary": "update a Comic by id",
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         "description": "",
         "parameters": [
           {
@@ -429,37 +364,21 @@
             "schema": {
               "type": "string"
             },
-<<<<<<< HEAD
-            "description": "Movie ID"
-=======
             "description": "Hero ID"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           }
         ],
         "responses": {
           "200": {
-<<<<<<< HEAD
-            "description": "Success: Movie was updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-=======
             "description": "Success: Hero was updated successfully.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Hero"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 }
               },
               "application/xml": {
                 "schema": {
-<<<<<<< HEAD
-                  "$ref": "#/components/schemas/Movie"
-=======
                   "$ref": "#/components/schemas/Hero"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 }
               }
             }
@@ -468,11 +387,7 @@
             "description": "Bad request: Data to update can not be empty!"
           },
           "404": {
-<<<<<<< HEAD
-            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
-=======
             "description": "Not found: Cannot update Hero with id."
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           },
           "500": {
             "description": "Internal server error"
@@ -483,11 +398,7 @@
           "content": {
             "application/json": {
               "schema": {
-<<<<<<< HEAD
-                "$ref": "#/components/schemas/Movie"
-=======
                 "$ref": "#/components/schemas/Hero"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
               }
             }
           }
@@ -495,15 +406,9 @@
       },
       "delete": {
         "tags": [
-<<<<<<< HEAD
-          "movies"
-        ],
-        "summary": "delete a single Movie by id",
-=======
           "comics"
         ],
         "summary": "delete a single Comic by id",
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         "description": "",
         "parameters": [
           {
@@ -513,26 +418,15 @@
             "schema": {
               "type": "string"
             },
-<<<<<<< HEAD
-            "description": "Movie ID"
-=======
             "description": "Comic ID"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           }
         ],
         "responses": {
           "204": {
-<<<<<<< HEAD
-            "description": "Success: Movie was deleted successfully!"
-          },
-          "404": {
-            "description": "Not found: Cannot delete Movie with id. Movie not found!"
-=======
             "description": "Success: Comic was deleted successfully!"
           },
           "404": {
             "description": "Not found: Cannot delete Comic with id. Maybe Comic was not found!"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           },
           "500": {
             "description": "Internal server error"
@@ -540,7 +434,235 @@
         }
       }
     },
-<<<<<<< HEAD
+    "/api/hero/{id}/toggleActiveStatus": {
+      "patch": {
+        "tags": [
+          "comics"
+        ],
+        "summary": "toggle a Comic active status by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Hero ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Hero active status was toggled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot toggle Hero active status with id."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/movie/": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "get all movies",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "Add a new Movie",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Success: Movie was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Movie"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "delete all Movies",
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/movie/{id}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "get a single movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the user to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found: Movie with id"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "update a Movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Movie ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Movie was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update Movie with id. Maybe Movie was not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Movie"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "delete a single Movie by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Movie ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success: Movie was deleted successfully!"
+          },
+          "404": {
+            "description": "Not found: Cannot delete Movie with id. Movie not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
     "/api/movie/{movieName}": {
       "get": {
         "tags": [
@@ -586,14 +708,6 @@
           "movies"
         ],
         "summary": "toggle a Movie active status by id",
-=======
-    "/api/hero/{id}/toggleActiveStatus": {
-      "patch": {
-        "tags": [
-          "comics"
-        ],
-        "summary": "toggle a Comic active status by id",
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         "description": "",
         "parameters": [
           {
@@ -603,37 +717,21 @@
             "schema": {
               "type": "string"
             },
-<<<<<<< HEAD
             "description": "Movie ID"
-=======
-            "description": "Hero ID"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           }
         ],
         "responses": {
           "200": {
-<<<<<<< HEAD
             "description": "Success: Movie active status was toggled successfully.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Movie"
-=======
-            "description": "Success: Hero active status was toggled successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Hero"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 }
               },
               "application/xml": {
                 "schema": {
-<<<<<<< HEAD
                   "$ref": "#/components/schemas/Movie"
-=======
-                  "$ref": "#/components/schemas/Hero"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 }
               }
             }
@@ -642,11 +740,7 @@
             "description": "Bad request: Data to update can not be empty!"
           },
           "404": {
-<<<<<<< HEAD
             "description": "Not found: Cannot toggle Movie active status with id. Movie not found!"
-=======
-            "description": "Not found: Cannot toggle Hero active status with id."
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
           },
           "500": {
             "description": "Internal server error"
@@ -1832,18 +1926,13 @@
           "name": "Comic"
         }
       },
-<<<<<<< HEAD
       "Movie": {
-=======
-      "Hero": {
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         "type": "object",
         "properties": {
           "type": {
             "type": "string",
             "example": "object"
           },
-<<<<<<< HEAD
           "required": {
             "type": "array",
             "example": [
@@ -1859,12 +1948,6 @@
             "type": "object",
             "properties": {
               "title": {
-=======
-          "properties": {
-            "type": "object",
-            "properties": {
-              "name": {
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 "type": "object",
                 "properties": {
                   "type": {
@@ -1873,7 +1956,6 @@
                   }
                 }
               },
-<<<<<<< HEAD
               "year": {
                 "type": "object",
                 "properties": {
@@ -1893,9 +1975,6 @@
                 }
               },
               "director": {
-=======
-              "identity": {
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 "type": "object",
                 "properties": {
                   "type": {
@@ -1904,29 +1983,7 @@
                   }
                 }
               },
-<<<<<<< HEAD
               "comicWorld": {
-=======
-              "creators": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "array"
-                  }
-                }
-              },
-              "powers": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "array"
-                  }
-                }
-              },
-              "createdYear": {
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 "type": "object",
                 "properties": {
                   "type": {
@@ -1935,7 +1992,6 @@
                   }
                 }
               },
-<<<<<<< HEAD
               "superHeroMain": {
                 "type": "object",
                 "properties": {
@@ -1955,9 +2011,6 @@
                 }
               },
               "superHeroSupport": {
-=======
-              "universe": {
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
                 "type": "object",
                 "properties": {
                   "type": {
@@ -1970,11 +2023,78 @@
           }
         },
         "xml": {
-<<<<<<< HEAD
           "name": "Movie"
-=======
+        }
+      },
+      "Hero": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "object"
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "identity": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "creators": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "array"
+                  }
+                }
+              },
+              "powers": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "array"
+                  }
+                }
+              },
+              "createdYear": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "universe": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "xml": {
           "name": "Hero"
->>>>>>> c8e8e55cc6affaf0be7a254ee4083eb4ff360fb1
         }
       },
       "Login": {
