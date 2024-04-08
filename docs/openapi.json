@@ -251,9 +251,9 @@
     "/api/hero/": {
       "get": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "get all comics",
+        "summary": "get all heroes",
         "description": "use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
         "responses": {
           "200": {
@@ -266,22 +266,22 @@
       },
       "post": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "Add a new Comic",
+        "summary": "Add a new Hero",
         "description": "",
         "responses": {
           "200": {
-            "description": "Success: Comic was updated successfully.",
+            "description": "Success: Hero was updated successfully.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Comic"
+                  "$ref": "#/components/schemas/Hero"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/Comic"
+                  "$ref": "#/components/schemas/Hero"
                 }
               }
             }
@@ -298,7 +298,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Comic"
+                "$ref": "#/components/schemas/Hero"
               }
             }
           }
@@ -306,9 +306,9 @@
       },
       "delete": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "delete all Comics",
+        "summary": "delete all Heroes",
         "description": "",
         "responses": {
           "204": {
@@ -323,9 +323,9 @@
     "/api/hero/{id}": {
       "get": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "get a single comic by id",
+        "summary": "get a single hero by id",
         "description": "",
         "parameters": [
           {
@@ -352,9 +352,9 @@
       },
       "put": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "update a Comic by id",
+        "summary": "update a Hero by id",
         "description": "",
         "parameters": [
           {
@@ -406,9 +406,9 @@
       },
       "delete": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "delete a single Comic by id",
+        "summary": "delete a single Hero by id",
         "description": "",
         "parameters": [
           {
@@ -437,9 +437,9 @@
     "/api/hero/{id}/toggleActiveStatus": {
       "patch": {
         "tags": [
-          "comics"
+          "heroes"
         ],
-        "summary": "toggle a Comic active status by id",
+        "summary": "toggle a Hero active status by id",
         "description": "",
         "parameters": [
           {
