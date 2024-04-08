@@ -42,6 +42,15 @@ const doc = {
           website: { type: "string" },
           description: { type: "string" },
           isActive: { type: "boolean" },
+          members: {
+            type: "array",
+            items: {
+              $ref: "#/definitions/User",
+            },
+          },
+          owner: {
+            $ref: "#/definitions/User",
+          },
         },
       },
       Comic: {

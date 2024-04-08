@@ -204,6 +204,7 @@ exports.toggleOrganizationActiveStatus = [
 ];
 
 exports.addMemberToOrganization = async (req, res, next) => {
+  // #swagger.responses[500] = { description: 'Internal server error' }
   const { memberId } = req.body;
   const { organizationId } = req.params;
 
@@ -237,6 +238,7 @@ exports.addMemberToOrganization = async (req, res, next) => {
 };
 
 exports.removeMemberFromOrganization = async (req, res, next) => {
+  // #swagger.responses[500] = { description: 'Internal server error' }
   const { organizationId, memberId } = req.params;
 
   try {
@@ -266,6 +268,7 @@ exports.removeMemberFromOrganization = async (req, res, next) => {
 };
 
 exports.updateOwnerOfOrganization = async (req, res, next) => {
+  // #swagger.responses[500] = { description: 'Internal server error' }
   const { organizationId } = req.params;
   const { ownerId } = req.body;
 

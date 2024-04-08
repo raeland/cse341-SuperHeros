@@ -1162,6 +1162,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "requestBody": {
@@ -1220,6 +1223,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
@@ -1256,6 +1262,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "requestBody": {
@@ -1576,6 +1585,27 @@
                     "example": "boolean"
                   }
                 }
+              },
+              "members": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "array"
+                  },
+                  "items": {
+                    "xml": {
+                      "name": "user"
+                    },
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "owner": {
+                "xml": {
+                  "name": "user"
+                },
+                "$ref": "#/components/schemas/User"
               }
             }
           }
