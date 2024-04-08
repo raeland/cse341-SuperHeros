@@ -248,6 +248,238 @@
         }
       }
     },
+    "/api/hero/": {
+      "get": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "get all heroes",
+        "description": "use this as the API key = Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "Add a new Hero",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Success: Hero was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update User with id. Maybe User was not found!"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Hero"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "delete all Heroes",
+        "description": "",
+        "responses": {
+          "204": {
+            "description": "Success: Comics were deleted successfully!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/hero/{id}": {
+      "get": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "get a single hero by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the user to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found: Hero with id"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "update a Hero by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Hero ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Hero was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot update Hero with id."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Hero"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "delete a single Hero by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comic ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success: Comic was deleted successfully!"
+          },
+          "404": {
+            "description": "Not found: Cannot delete Comic with id. Maybe Comic was not found!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/hero/{id}/toggleActiveStatus": {
+      "patch": {
+        "tags": [
+          "heroes"
+        ],
+        "summary": "toggle a Hero active status by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Hero ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success: Hero active status was toggled successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hero"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: Data to update can not be empty!"
+          },
+          "404": {
+            "description": "Not found: Cannot toggle Hero active status with id."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
     "/api/movie/": {
       "get": {
         "tags": [
@@ -1792,6 +2024,77 @@
         },
         "xml": {
           "name": "Movie"
+        }
+      },
+      "Hero": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "object"
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "identity": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "creators": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "array"
+                  }
+                }
+              },
+              "powers": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "array"
+                  }
+                }
+              },
+              "createdYear": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              },
+              "universe": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "Hero"
         }
       },
       "Login": {
