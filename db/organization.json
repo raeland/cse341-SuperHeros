@@ -1,0 +1,22 @@
+{
+   "name": "Marvel",
+   "isActive": true,
+   "members": [
+      {
+         "_id": "6604b8139399fc74ed9353a0"
+      },
+      {
+         "_id": "6604b8139399fc74ed9353a1"
+      },
+      {
+         "_id": "6604b8139399fc74ed9353a2"
+      }
+   ],
+   "owner": {
+      "_id": "6604b8139399fc74ed9353a3"
+   },
+   "address": "Marvel HQ, New York, USA",
+   "website": "www.marvel.com",
+   "phone": "+15412440891",
+   "description": "Marvel Comics is the brand name and primary imprint of Marvel Worldwide Inc., formerly Marvel Publishing, Inc. and Marvel Comics Group, a publisher of American comic books and related media."
+}
