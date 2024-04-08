@@ -45,6 +45,18 @@ const doc = {
           language: { type: "string" },
         },
       },
+      Hero: {
+        type: "object",
+
+        properties: {
+          name: { type: "string" },
+          identity: { type: "string" },
+          creators: { type: "array" },
+          powers: { type: "array" },
+          createdYear: { type: "string" },
+          universe: { type: "string" },
+        },
+      },
       Login: {
         type: "object",
         required: ["username", "password"],

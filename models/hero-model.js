@@ -8,40 +8,37 @@ const Roles = {
   ADMIN: "Admin",
 };
 
-const ComicSchema = mongoose.Schema(
+const HeroSchema = mongoose.Schema(
   {
     githubId: String,
     displayName: String,
     profileUrl: String,
-    publication: {
+    name: {
       type: String,
     },
-    publisher: {
+    identity: {
       type: String,
     },
-    title: {
+    creators: {
+      type: Array,
+    },
+    powers: {
+      type: Array,
+    },
+    createdYear: {
       type: String,
     },
-    pages: {
-      type: String,
-    },
-    year: {
-      type: String,
-    },
-    isbn13: {
-      type: String,
-    },
-    language: {
+    universe: {
       type: String,
     },
   },
   {
     timestamps: true,
-    collection: "comics",
+    collection: "hero",
   }
 );
 
-ComicSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
+HeroSchema.statics.findOrCreate = async function findOrCreate(condition, doc) {
   const result = await this.findOne(condition);
   return result || this.create(doc);
 };
@@ -53,7 +50,7 @@ UserSchema.pre("save", async function (next) {
   next();
 });   *********************************/
 
-const Comic = mongoose.model("Comic", ComicSchema);
+const Hero = mongoose.model("Hero", HeroSchema);
 /*
 const userJoiSchema = Joi.object({
   username: Joi.string()
@@ -69,7 +66,7 @@ const userJoiSchema = Joi.object({
 
 module.exports = {
   Roles,
-  Comic,
+  Hero,
   /* userJoiSchema,  **********/
 };
 
@@ -77,27 +74,24 @@ module.exports = {
  * @swagger
  * components:
  *   schemas:
- *     Comic:
+ *     Hero:
  *       type: object
  *       properties:
- *         publication:
+ *         name:
  *           type: string
- *           description: The user's username. Must be at least 3 characters long and contain no spaces.
- *         publisher:
+ *           description: The hero's hero name. Must be at least 3 characters long.
+ *         identity:
  *           type: string
  *           description: The user's email. Must be a valid email format.
- *         title:
- *           type: string
+ *         creators:
+ *           type: array
  *           description: The user's role
- *         pages:
- *           type: string
+ *         powers:
+ *           type: array
  *           description: The active status of the user
- *         year: string
+ *         createdYear: string
  *           description: The active status of the user
- *        isbn13:
- *           type: string
- *           description: The active status of the user
- *        language:
+ *        universe:
  *           type: string
  *           description: The active status of the user
  */
