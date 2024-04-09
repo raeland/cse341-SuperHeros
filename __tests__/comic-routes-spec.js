@@ -4,7 +4,7 @@ const request = require("supertest");
 const express = require("express");
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
-const { Comic: ComicModel } = require("../models/comic-model");
+const { ComicModel } = require("../models/comic-model");
 const routes = require("../routes/comic-routes");
 
 const app = express();

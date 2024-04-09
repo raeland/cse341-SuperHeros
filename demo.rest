@@ -1,0 +1,184 @@
+// LOCALHOST
+###
+GET http://localhost:8080/
+### editor login
+POST http://localhost:8080/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "stanlee",
+  "password": "secret"
+}
+### admin login
+POST http://localhost:8080/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "jackkirby",
+  "password": "secret"
+}
+### logout
+GET http://localhost:8080/api/auth/logout/
+
+### get all users
+GET http://localhost:8080/api/users/ 
+
+### get one
+GET http://localhost:8080/api/users/6604b8139399fc74ed9353a0
+
+###
+PUT http://localhost:8080/api/users/6615645367968fb68b34a83c
+Content-Type: application/json
+
+{
+   "email": "demonstration@gmail.com"
+}
+
+### toggle user active status
+PATCH http://localhost:8080/api/users/6615645367968fb68b34a83c/toggleActiveStatus
+### change role
+PATCH http://localhost:8080/api/users/6615645367968fb68b34a83c/role
+Content-Type: application/json
+
+{
+   "role": "Editor"
+}
+###
+PATCH http://localhost:8080/api/users/6615645367968fb68b34a83c/role
+Content-Type: application/json
+
+{
+   "role": "Viewer"
+}
+
+### invalid user role
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+   "username": "demo",
+   "email": "demo@gmail.com",
+   "phone": "+15412440899",
+   "role": "Hacker"
+}
+### new user
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+   "username": "yademo",
+   "email": "yademo@gmail.com",
+   "phone": "+15412440899"
+}
+
+###
+GET http://localhost:8080/api/users/ 
+
+###
+DELETE http://localhost:8080/api/users/6615675e67968fb68b34a863
+
+### get all heros
+GET http://localhost:8080/api/hero/ 
+
+### update batman
+PUT http://localhost:8080/api/hero/660f105e8de28bcb29115394
+Content-Type: application/json
+
+{
+    "powers": [     
+       "Genius Inventor"
+    ]
+}
+
+### create Flash
+POST http://localhost:8080/api/hero
+Content-Type: application/json
+
+{
+    "name": "Flash",
+    "identity": "Barry Allen",
+    "creators": [
+      "Robert Kanigher",
+      "Carmine Infantino"
+    ],
+    "powers": [
+      "super speed",
+      "intangibility",
+      "time travel",
+      "dimensional travel",
+      "speed force"
+    ],
+    "createdYear": "1956",
+    "universe": "DC"
+}
+
+### get all heros
+GET http://localhost:8080/api/hero/ 
+
+### delete Flash
+DELETE http://localhost:8080/api/hero/66156cbc67968fb68b34a87f
+
+### confirm delete
+GET http://localhost:8080/api/hero/66156cbc67968fb68b34a87f
+
+
+### get all comics
+GET http://localhost:8080/api/comics/
+
+### create Spider-Man: Into the Spider-Verse
+POST http://localhost:8080/api/comics
+Content-Type: application/json
+
+{
+    "publication": "Marvel",
+    "publisher": "Panini",
+    "pages": "120",
+    "year": "2019",
+    "isbn13": "978-1302916270",
+    "language": "English",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "updatedAt": "2024-04-09T01:02:09.204Z"
+}
+
+### get all movies
+GET http://localhost:8080/api/movie/
+
+### create Spider-Man: Into the Spider-Verse
+PUT http://localhost:8080/api/movie/6614ad62aa96c5e1a635588f
+Content-Type: application/json
+
+{
+        "superHeroSupport": "Superwoman"
+}
+
+
+### get all organizations
+GET http://localhost:8080/api/organizations/ 
+
+### add member to organization
+POST http://localhost:8080/api/organizations/66143070aa96c5e1a6d8ef5e/members
+Content-Type: application/json
+
+{
+        "memberId": "660b0a8e597b9c9a89a89b7c"
+}
+
+### delete member to organization
+DELETE http://localhost:8080/api/organizations/66143070aa96c5e1a6d8ef5e/members/660b0a8e597b9c9a89a89b7c
+Content-Type: application/json
+
+### update owner organization - joelcannon
+PUT http://localhost:8080/api/organizations/66143070aa96c5e1a6d8ef5e/owner
+Content-Type: application/json
+
+{
+        "ownerId": "660b0a8e597b9c9a89a89b7c"
+}
+
+### update owner organization - jimlee
+PUT http://localhost:8080/api/organizations/66143070aa96c5e1a6d8ef5e/owner
+Content-Type: application/json
+
+{
+        "ownerId": "6604b8139399fc74ed9353a3"
+}
