@@ -1,0 +1,133 @@
+[
+   {
+      "name": "Batman",
+      "identity": "Bruce Wayne",
+      "creators": [
+         "Bob Kane",
+         "Bill Finger"
+      ],
+      "powers": [
+         "none"
+      ],
+      "createdYear": "1939",
+      "universe": "DC",
+   },
+   {
+      "name": "Superman",
+      "identity": "Clark Kent",
+      "creators": [
+         "Jerry Siegel",
+         "Joe Shuster"
+      ],
+      "powers": [
+         "strength",
+         "heat visions",
+         "speed",
+         "reflexes",
+         "youth",
+         "flight",
+         "super breath",
+         "x-ray vision",
+         "invulnerability"
+      ],
+      "createdYear": "1938",
+      "universe": "DC",
+   },
+   {
+      "name": "Green Lantern",
+      "identity": "Hal Jordan",
+      "creators": [
+         "John Broome",
+         "Gil Kane"
+      ],
+      "powers": [
+         "flight",
+         "hard light construct generation"
+      ],
+      "createdYear": "1959",
+      "universe": "DC"
+   },
+   {
+      "name": "Wonder Woman",
+      "identity": "Diana Prince",
+      "creators": [
+         "William Moulton Marston"
+      ],
+      "powers": [
+         "godlike strenght",
+         "speed",
+         "reflexes",
+         "flight",
+         "divine powers"
+      ],
+      "createdYear": "1941",
+      "universe": "DC"
+   },
+   {
+      "name": "Captain America",
+      "identity": "Steve Rogers",
+      "creators": [
+         "Joe Simon",
+         "Jack Kirby"
+      ],
+      "powers": [
+         "peak human condition",
+         "accelerated healing",
+         "enhanced intelligence",
+         "longevity",
+         "strength"
+      ],
+      "createdYear": "1940",
+      "universe": "Marvel"
+   },
+   {
+      "name": "Deadpool",
+      "identity": "Wade Wilson",
+      "creators": [
+         "Fabian Nicieza",
+         "Rob Liefeld"
+      ],
+      "powers": [
+         "super accelerated healing",
+         "immunity to telepathy",
+         "stamina",
+         "reflexes",
+         "knowledge of the 4th wall"
+      ],
+      "createdYear": "1991",
+      "universe": "Marvel"
+   },
+   {
+      "name": "Black Widow",
+      "identity": "Natasha Romanova",
+      "creators": [
+         "Stan Lee",
+         "Don Rico",
+         "Don Heck"
+      ],
+      "powers": [
+         "slowed aging"
+      ],
+      "createdYear": "1964",
+      "universe": "Marvel"
+   },
+   {
+      "name": "Spiderman",
+      "identity": "Peter Parker",
+      "creators": [
+         "Stan Lee",
+         "Steve Ditko"
+      ],
+      "powers": [
+         "strength",
+         "agility",
+         "spider senses",
+         "web slinging",
+         "climb walls",
+         "accelerated healing",
+         "reflexes"
+      ],
+      "createdYear": "1962",
+      "universe": "Marvel"
+   }
+]

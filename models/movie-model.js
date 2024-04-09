@@ -1,17 +1,8 @@
-const mongoose = require("mongoose")
-const movieJoi = require("joi")
-
-const Roles = {
-  VIEWER: "Viewer",
-  EDITOR: "Editor",
-  ADMIN: "Admin",
-}
+const mongoose = require("mongoose");
+const movieJoi = require("joi");
 
 const movieSchema = mongoose.Schema(
   {
-    //githubId: String,
-    //displayName: String,
-    //profileUrl: String,
     id: {
       type: String,
     },
@@ -44,14 +35,17 @@ const movieSchema = mongoose.Schema(
     timestamps: true,
     collection: "movie",
   }
-)
+);
 
-movieSchema.statics.findOrAddMovie = async function findOrAddMovie(condition, doc) {
-  const result = await this.findOne(condition)
-  return result || this.create(doc)
-}
+movieSchema.statics.findOrAddMovie = async function findOrAddMovie(
+  condition,
+  doc
+) {
+  const result = await this.findOne(condition);
+  return result || this.create(doc);
+};
 
-const movie = mongoose.model("Movie", movieSchema);
+const MovieModel = mongoose.model("Movie", movieSchema);
 /*
 const userJoiSchema = Joi.object({
   username: Joi.string()
@@ -65,9 +59,8 @@ const userJoiSchema = Joi.object({
 })  ***************************/
 
 module.exports = {
-  Roles,
-  movie,
-}
+  MovieModel,
+};
 
 /**
  * @swagger

@@ -10,7 +10,7 @@ userRouter.get(
   // #swagger.tags = ['users']
   isAuthenticated,
   checkPermissions("readUser"),
-  userController.getAllOrganizations
+  userController.getAllUsers
 );
 
 userRouter.get(

@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 //const isPhoneNumberValid = require("../utils/phone-validator");
 const Joi = require("joi");
 
-const Roles = {
-  VIEWER: "Viewer",
-  EDITOR: "Editor",
-  ADMIN: "Admin",
-};
-
 const ComicSchema = mongoose.Schema(
   {
     githubId: String,
@@ -53,7 +47,7 @@ UserSchema.pre("save", async function (next) {
   next();
 });   *********************************/
 
-const Comic = mongoose.model("Comic", ComicSchema);
+const ComicModel = mongoose.model("Comic", ComicSchema);
 /*
 const userJoiSchema = Joi.object({
   username: Joi.string()
@@ -68,8 +62,7 @@ const userJoiSchema = Joi.object({
 });  ***************************/
 
 module.exports = {
-  Roles,
-  Comic,
+  ComicModel,
   /* userJoiSchema,  **********/
 };
 
