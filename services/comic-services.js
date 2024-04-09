@@ -1,8 +1,6 @@
 const { ComicModel } = require("../models/comic-model");
 
 function findComicById(id) {
-  console.log("findComicById", id);
-  // console.log('User', User)
   return ComicModel.findById(id);
 }
 

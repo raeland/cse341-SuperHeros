@@ -41,7 +41,7 @@ app
   .use("/", statusRoutes)
   .use(errorHandler);
 
-console.log(path.join(__dirname, "coverage/lcov-report"));
+// console.log(path.join(__dirname, "coverage/lcov-report"));
 
 connect();
 

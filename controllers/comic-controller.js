@@ -8,7 +8,7 @@ exports.createComic = [
   /* validateComic,   ******************************/
   async (req, res, next) => {
     // #swagger.responses[500] = { description: 'Internal server error' }
-    console.log("createComic", req.body);
+    // console.log("createComic", req.body);
     if (!req.body.title) {
       return res.status(400).json({ message: "Content can not be empty!" });
     }

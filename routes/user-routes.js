@@ -52,7 +52,7 @@ userRouter.post(
   isAuthenticated,
   checkPermissions("updateUser"),
   (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
     next();
   },
   userController.createUser

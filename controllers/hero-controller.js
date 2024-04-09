@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Hero } = require("../models/hero-model");
+const { HeroModel } = require("../models/hero-model");
 const { findHeroById, createHero } = require("../services/hero-services");
 //const validateComic = require("../middlewares/validate-comic");
 //const validateComicUpdate = require("../middlewares/validate-comic-update");
@@ -12,7 +12,7 @@ exports.createHero = [
       return res.status(400).json({ message: "Content can not be empty!" });
     }
 
-    const hero = new Hero({
+    const hero = new HeroModel({
       name: req.body.name,
       identity: req.body.identity,
       creators: req.body.creators,
@@ -35,7 +35,9 @@ exports.getAllHeroes = [
     // #swagger.responses[200] = { description: 'Success' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
-      const data = await Hero.find();
+      const data = await HeroModel.find();
+      // console.log("getAllHeroes", data);
+
       res.json(data);
     } catch (err) {
       next(err);
@@ -97,7 +99,7 @@ exports.updateHeroById = [
     const id = req.params.id;
 
     try {
-      const data = await Hero.findByIdAndUpdate(id, req.body, {
+      const data = await HeroModel.findByIdAndUpdate(id, req.body, {
         useFindAndModify: false,
         new: true,
       });
@@ -126,7 +128,7 @@ exports.deleteHeroById = [
     const id = req.params.id;
 
     try {
-      const data = await Hero.findByIdAndRemove(id);
+      const data = await HeroModel.findByIdAndRemove(id);
 
       if (!data) {
         return res.status(404).json({
@@ -146,7 +148,7 @@ exports.deleteAllHeroes = [
     // #swagger.responses[204] = { description: 'Success: Comics were deleted successfully!' }
     // #swagger.responses[500] = { description: 'Internal server error' }
     try {
-      const data = await Hero.deleteMany({});
+      const data = await HeroModel.deleteMany({});
       res.status(204).json({
         message: `${data.deletedCount} Heroes were deleted successfully!`,
       });
@@ -176,7 +178,7 @@ exports.toggleHeroActiveStatus = [
     const id = req.params.id;
 
     try {
-      const hero = await Hero.findById(id);
+      const hero = await HeroModel.findById(id);
       if (!hero) {
         return res.status(404).json({
           message: `Cannot toggle Hero active status with id=${id}.`,

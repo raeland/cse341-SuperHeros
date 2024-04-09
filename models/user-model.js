@@ -42,7 +42,7 @@ const UserSchema = mongoose.Schema(
           `${props.value} is not a valid phone number. ie:(+18881234567)`,
       },
       required: false,
-      unique: true,
+      unique: false,
       sparse: true,
     },
     role: {
