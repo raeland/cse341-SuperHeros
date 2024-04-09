@@ -8,17 +8,17 @@ exports.createHero = [
   /* validateComic,   ******************************/
   async (req, res, next) => {
     // #swagger.responses[500] = { description: 'Internal server error' }
-    if (!req.body.heroname) {
+    if (!req.body.name) {
       return res.status(400).json({ message: "Content can not be empty!" });
     }
 
-    const comic = new Comic({
+    const hero = new Hero({
       name: req.body.name,
       identity: req.body.identity,
       creators: req.body.creators,
       powers: req.body.powers,
       createdYear: req.body.createdYear,
-      universe: req.body.universe
+      universe: req.body.universe,
     });
 
     try {
@@ -87,7 +87,7 @@ exports.updateHeroById = [
   // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
   // #swagger.responses[404] = { description: 'Not found: Cannot update Hero with id.' }
   // #swagger.responses[500] = { description: 'Internal server error' }
- async (req, res, next) => {
+  async (req, res, next) => {
     if (!req.body) {
       return res
         .status(400)
@@ -115,7 +115,7 @@ exports.updateHeroById = [
       next(err);
     }
   },
-]; 
+];
 
 exports.deleteHeroById = [
   async (req, res, next) => {
