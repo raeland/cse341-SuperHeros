@@ -46,20 +46,22 @@ movieSchema.statics.findOrAddMovie = async function findOrAddMovie(
 };
 
 const MovieModel = mongoose.model("Movie", movieSchema);
-/*
-const userJoiSchema = Joi.object({
-  username: Joi.string()
-    .pattern(new RegExp("^[a-zA-Z0-9_-]{3,30}$"))
-    .required(),
-  phone: Joi.string().pattern(new RegExp("^\\+[1-9]\\d{1,14}$")).required(),
-  role: Joi.string()
-    .valid(...Object.values(Roles))
-    .default(Roles.VIEWER),
-  isActive: Joi.boolean().default(true),
-})  ***************************/
+
+const movieJoiSchema = movieJoi.object({
+  id: movieJoi.string(),
+  title: movieJoi.string(),
+  year: movieJoi.number(),
+  runtime: movieJoi.number(),
+  director: movieJoi.string(),
+  comicWorld: movieJoi.string(),
+  superHeroMain: movieJoi.string(),
+  superVillain: movieJoi.string(),
+  superHeroSupport: movieJoi.string(),
+});
 
 module.exports = {
   MovieModel,
+  movieJoiSchema,
 };
 
 /**

@@ -1,8 +1,6 @@
 const { HeroModel } = require("../models/hero-model");
 
 function findHeroById(id) {
-  console.log("findHeroById", id);
-  // console.log('User', User)
   return HeroHero.findById(id);
 }
 

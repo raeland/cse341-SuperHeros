@@ -1,6 +1,9 @@
 require("dotenv").config();
 const { MovieModel } = require("../models/movie-model");
-const { findMovieById, createMovie } = require("../services/movie-services");
+const {
+  findMovieById,
+  createMovieService,
+} = require("../services/movie-services");
 //const validateMovie = require("../middlewares/validate-movie")
 //const validateMovieUpdate = require("../middlewares/validate-movie-update")
 
@@ -17,12 +20,13 @@ exports.createMovie = [
       runtime: req.body.runtime,
       director: req.body.director,
       comicWorld: req.body.comicWorld,
-      superHeroMain: req.body.publisher,
+      superHeroMain: req.body.superHeroMain,
       superVillain: req.body.superVillain,
       superHeroSupport: req.body.superHeroSupport,
     });
     try {
-      const data = await createMovie(movie);
+      // console.log("createMovie", movie);
+      const data = await createMovieService(movie);
       res.json(data);
     } catch (err) {
       next(err);

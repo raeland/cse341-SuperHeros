@@ -1,6 +1,9 @@
 require("dotenv").config();
 const { UserModel } = require("../models/user-model");
-const { findUserById, createUser } = require("../services/user-services");
+const {
+  findUserById,
+  createUserService,
+} = require("../services/user-services");
 const validateUser = require("../middlewares/validate-user");
 const validateUserUpdate = require("../middlewares/validate-user-update");
 
@@ -21,7 +24,7 @@ exports.createUser = [
     });
 
     try {
-      const data = await createUser(user);
+      const data = await createUserService(user);
       res.json(data);
     } catch (err) {
       next(err);

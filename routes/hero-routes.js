@@ -44,11 +44,11 @@ heroRouter.post(
   // #swagger.responses[400] = { description: 'Bad request: Data to update can not be empty!' }
   // #swagger.responses[404] = { description: 'Not found: Cannot update User with id. Maybe User was not found!' }
 
- /* isAuthenticated, ******************************
+  /* isAuthenticated, ******************************
   (req, res, next) => {
     console.log(req.body);
     next();
-  },                 ******************************/  
+  },                 ******************************/
   heroController.createHero
 );
 

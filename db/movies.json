@@ -1,0 +1,52 @@
+[
+   {
+      "title": "The Dark Knight",
+      "year": 2008,
+      "runtime": 152,
+      "director": "Christopher Nolan",
+      "comicWorld": "DC",
+      "superHeroMain": "Batman",
+      "superVillain": "Joker",
+      "superHeroSupport": "Alfred Pennyworth"
+   },
+   {
+      "title": "Iron Man",
+      "year": 2008,
+      "runtime": 126,
+      "director": "Jon Favreau",
+      "comicWorld": "Marvel",
+      "superHeroMain": "Iron Man",
+      "superVillain": "Obadiah Stane",
+      "superHeroSupport": "Pepper Potts"
+   },
+   {
+      "title": "Man of Steel",
+      "year": 2013,
+      "runtime": 143,
+      "director": "Zack Snyder",
+      "comicWorld": "DC",
+      "superHeroMain": "Superman",
+      "superVillain": "General Zod",
+      "superHeroSupport": "Lois Lane"
+   },
+   {
+      "title": "The Avengers",
+      "year": 2012,
+      "runtime": 143,
+      "director": "Joss Whedon",
+      "comicWorld": "Marvel",
+      "superHeroMain": "Captain America",
+      "superVillain": "Loki",
+      "superHeroSupport": "Black Widow"
+   },
+   {
+      "title": "Spider-Man: Homecoming",
+      "year": 2017,
+      "runtime": 133,
+      "director": "Jon Watts",
+      "comicWorld": "Marvel",
+      "superHeroMain": "Spider-Man",
+      "superVillain": "Vulture",
+      "superHeroSupport": "Ned Leeds"
+   }
+]

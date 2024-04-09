@@ -11,7 +11,7 @@ exports.github = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  console.log(req.body); // Log the request body JWC
+  // console.log(req.body); // Log the request body JWC
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       console.error("Error during local authentication:", err);
