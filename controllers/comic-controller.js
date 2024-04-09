@@ -16,7 +16,7 @@ exports.createComic = [
     const comic = new ComicModel({
       publication: req.body.publication,
       publisher: req.body.publisher,
-      title: req.body.Title,
+      title: req.body.title,
       pages: req.body.pages,
       year: req.body.year,
       isbn13: req.body.isbn13,

@@ -1,7 +1,7 @@
 const { HeroModel } = require("../models/hero-model");
 
 function findHeroById(id) {
-  return HeroHero.findById(id);
+  return HeroModel.findById(id);
 }
 
 async function createHero(heroData) {

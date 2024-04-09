@@ -95,7 +95,7 @@ organizationRouter.patch(
 );
 
 organizationRouter.post(
-  "/organizations/:organizationId/members",
+  "/:organizationId/members",
   // #swagger.summary = 'Add a member to an organization'
   // #swagger.tags = ['organizations']
   isAuthenticated,
@@ -104,7 +104,7 @@ organizationRouter.post(
 );
 
 organizationRouter.delete(
-  "/organizations/:organizationId/members/:memberId",
+  "/:organizationId/members/:memberId",
   // #swagger.summary = 'Remove a member from an organization'
   // #swagger.tags = ['organizations']
   isAuthenticated,
@@ -113,7 +113,7 @@ organizationRouter.delete(
 );
 
 organizationRouter.put(
-  "/organizations/:organizationId/owner",
+  "/:organizationId/owner",
   // #swagger.summary = 'Update the owner of an organization'
   // #swagger.tags = ['organizations']
   isAuthenticated,

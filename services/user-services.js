@@ -10,8 +10,8 @@ async function findUserByUsername(username) {
   return UserModel.findOne({ username: username });
 }
 
-async function createUser(userData) {
-  const user = new User(userData);
+async function createUserService(userData) {
+  const user = new UserModel(userData);
   return await user.save();
 }
 
@@ -30,6 +30,6 @@ async function findOrCreateUser(profile) {
 module.exports = {
   findUserById,
   findUserByUsername,
-  createUser,
+  createUserService,
   findOrCreateUser,
 };
