@@ -1,0 +1,189 @@
+// RENDER
+
+### STATUS
+GET https://superheros-6636.onrender.com/
+
+### editor login
+POST https://superheros-6636.onrender.com/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "stanlee",
+  "password": "secret"
+}
+
+### admin login
+POST https://superheros-6636.onrender.com/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "jackkirby",
+  "password": "secret"
+}
+### logout
+GET https://superheros-6636.onrender.com/api/auth/logout/
+
+### get all users
+GET https://superheros-6636.onrender.com/api/users/ 
+
+### get one
+GET https://superheros-6636.onrender.com/api/users/6604b8139399fc74ed9353a0
+
+### update email
+PUT https://superheros-6636.onrender.com/api/users/6615645367968fb68b34a83c
+Content-Type: application/json
+
+{
+   "email": "demonstration@gmail.com"
+}
+
+### toggle user active status
+PATCH https://superheros-6636.onrender.com/api/users/6615645367968fb68b34a83c/toggleActiveStatus
+
+### change role
+PATCH https://superheros-6636.onrender.com/api/users/6615645367968fb68b34a83c/role
+Content-Type: application/json
+
+{
+   "role": "Editor"
+}
+
+###
+PATCH https://superheros-6636.onrender.com/api/users/6615645367968fb68b34a83c/role
+Content-Type: application/json
+
+{
+   "role": "Viewer"
+}
+
+### invalid user role
+POST https://superheros-6636.onrender.com/api/users
+Content-Type: application/json
+
+{
+   "username": "demo",
+   "email": "demo@gmail.com",
+   "phone": "+15412440899",
+   "role": "Hacker"
+}
+### new user
+POST https://superheros-6636.onrender.com/api/users
+Content-Type: application/json
+
+{
+   "username": "yademo",
+   "email": "yademo@gmail.com",
+   "phone": "+15412440899"
+}
+
+###
+GET https://superheros-6636.onrender.com/api/users/ 
+
+### delete a user
+DELETE https://superheros-6636.onrender.com/api/users/6615675e67968fb68b34a863
+
+### get all heros
+GET https://superheros-6636.onrender.com/api/hero/ 
+
+### update batman
+PUT https://superheros-6636.onrender.com/api/hero/660f105e8de28bcb29115394
+Content-Type: application/json
+
+{
+    "powers": [     
+       "Genius Inventor"
+    ]
+}
+
+### create Flash
+POST https://superheros-6636.onrender.com/api/hero
+Content-Type: application/json
+
+{
+    "name": "Flash",
+    "identity": "Barry Allen",
+    "creators": [
+      "Robert Kanigher",
+      "Carmine Infantino"
+    ],
+    "powers": [
+      "super speed",
+      "intangibility",
+      "time travel",
+      "dimensional travel",
+      "speed force"
+    ],
+    "createdYear": "1956",
+    "universe": "DC"
+}
+
+### get all heros
+GET https://superheros-6636.onrender.com/api/hero/ 
+
+### delete Flash
+DELETE https://superheros-6636.onrender.com/api/hero/66156cbc67968fb68b34a87f
+
+### confirm delete
+GET https://superheros-6636.onrender.com/api/hero/66156cbc67968fb68b34a87f
+
+
+### get all comics
+GET https://superheros-6636.onrender.com/api/comics/
+
+### create Spider-Man: Into the Spider-Verse
+POST https://superheros-6636.onrender.com/api/comics
+Content-Type: application/json
+
+{
+    "publication": "Marvel",
+    "publisher": "Panini",
+    "pages": "120",
+    "year": "2019",
+    "isbn13": "978-1302916270",
+    "language": "English",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "updatedAt": "2024-04-09T01:02:09.204Z"
+}
+
+### get all movies
+GET https://superheros-6636.onrender.com/api/movie/
+
+### create Spider-Man: Into the Spider-Verse
+PUT https://superheros-6636.onrender.com/api/movie/6614ad62aa96c5e1a635588f
+Content-Type: application/json
+
+{
+        "superHeroSupport": "Superwoman"
+}
+
+
+### get all organizations
+GET https://superheros-6636.onrender.com/api/organizations/ 
+
+### add member to organization
+POST https://superheros-6636.onrender.com/api/organizations/66143070aa96c5e1a6d8ef5e/members
+Content-Type: application/json
+
+{
+        "memberId": "660b0a8e597b9c9a89a89b7c"
+}
+
+### delete member to organization
+DELETE https://superheros-6636.onrender.com/api/organizations/66143070aa96c5e1a6d8ef5e/members/660b0a8e597b9c9a89a89b7c
+Content-Type: application/json
+
+### update owner organization - joelcannon
+PUT https://superheros-6636.onrender.com/api/organizations/66143070aa96c5e1a6d8ef5e/owner
+Content-Type: application/json
+
+{
+        "ownerId": "660b0a8e597b9c9a89a89b7c"
+}
+
+### update owner organization - jimlee
+PUT https://superheros-6636.onrender.com/api/organizations/66143070aa96c5e1a6d8ef5e/owner
+Content-Type: application/json
+
+{
+        "ownerId": "6604b8139399fc74ed9353a3"
+}
