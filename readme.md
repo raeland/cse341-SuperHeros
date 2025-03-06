@@ -9,12 +9,7 @@
 7. In Github, create a new pull request with all your notes of changes that you made
 8. Reach out to someone to do a pull request review.
 
-# Links
 
-GitHub - https://github.com/raeland/cse341-SuperHeros
-Render - https://superheros-6636.onrender.com/api/docs
-Proposal - https://docs.google.com/document/d/1x4JgfCmUX8qKFdUxg7kx79yyM5b78ad8qsnfaU8_qEU/edit
-Tasks - https://trello.com/b/WvTInU5J/cse341-team-project
 
 (ask for .env file)
 
@@ -78,19 +73,3 @@ pnpm add [package-name]
 By using pnpm, we ensure that everyone is using the same package manager, leading to more consistent installations and fewer 'it works on my machine' issues.
 
 Remember to replace [package-name] with the actual name of the package you want to add.
-
-Team Members (alpha order by first name):
-
-Cristian | | cdelahoze@hotmail.com
-
-Eduardo | EMFERNANDEZV | eduardo15191@gmail.com
-
-Hector | hectapia | oli21007@byui.edu
-
-Joel | JoelCannon | joelcannon@mac.com
-
-Preston | preston-bateman | prestonbbateman@gmail.com
-
-Rachael | raeland | rsvarady@gmail.com
-
-Ricardo | Ricardo230698 | ricardoprograming@gmail.com
