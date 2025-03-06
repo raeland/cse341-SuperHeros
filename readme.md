@@ -73,3 +73,20 @@ pnpm add [package-name]
 By using pnpm, we ensure that everyone is using the same package manager, leading to more consistent installations and fewer 'it works on my machine' issues.
 
 Remember to replace [package-name] with the actual name of the package you want to add.
+
+
+Team Members (alpha order by first name):
+
+Cristian | | cdelahoze@hotmail.com
+
+Eduardo | EMFERNANDEZV | eduardo15191@gmail.com
+
+Hector | hectapia | oli21007@byui.edu
+
+Joel | JoelCannon | joelcannon@mac.com
+
+Preston | preston-bateman | prestonbbateman@gmail.com
+
+Rachael | raeland | rsvarady@gmail.com
+
+Ricardo | Ricardo230698 | ricardoprograming@gmail.com
